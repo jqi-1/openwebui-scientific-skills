@@ -88,16 +88,20 @@ def main():
         print("authenticated as", args.email)
 
     # Connectivity sanity check against a real endpoint before hammering /create.
+    # /api/v1/auths/ is behind token auth, so 401/403 also prove the server is
+    # up (that is the normal case for --token mode).
     try:
         with urllib.request.urlopen(
                 urllib.request.Request(url + "/api/v1/auths/"),
                 timeout=args.timeout) as resp:
-            if resp.status != 200:
-                print("error: unexpected status from %s: %s" % (url, resp.status),
-                      file=sys.stderr)
-                sys.exit(1)
+            status = resp.status
+    except urllib.error.HTTPError as e:
+        status = e.code
     except urllib.error.URLError as e:
         print("error: cannot reach Open WebUI at %s (%s)" % (url, e), file=sys.stderr)
+        sys.exit(1)
+    if status not in (200, 201, 202, 204, 401, 403):
+        print("error: unexpected status %s from %s" % (status, url), file=sys.stderr)
         sys.exit(1)
     if args.dry_run:
         n = len(json.load(open(args.file, encoding="utf-8")))
