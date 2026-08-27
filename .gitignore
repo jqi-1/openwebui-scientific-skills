@@ -1,0 +1,8 @@
+# upstream clone used as the conversion source (regenerate with convert_to_openwebui.py)
+_src/
+
+# codegraph local index
+.codegraph/
+
+__pycache__/
+*.pyc
