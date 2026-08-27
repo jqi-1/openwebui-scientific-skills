@@ -17,13 +17,37 @@ markdown skill** — Open WebUI's format for storing and importing skills
 - `convert_to_openwebui.py` — the converter (stdlib only)
 - `LICENSE.md` — upstream MIT license (derived work)
 
-## Install
+## One-click install all (no UI clicks)
+
+Open WebUI exposes skills only through `POST /api/v1/skills/create` (one call
+per skill) — there is no bulk endpoint, and the official community site imports
+**Tools and Functions only, not Skills** (verified in their docs/source; folder
+`SKILL.md` support is an unmerged PR [#21275](https://github.com/open-webui/open-webui/pull/21275)).
+The built-in **Import JSON** button is the UI's only "install many at once".
+For true one-click installs of all 163:
+
+```bash
+# API token:
+python3 install_to_openwebui.py --url http://localhost:8080 --token <JWT>
+
+# or admin login (script signs in for you):
+python3 install_to_openwebui.py --url http://localhost:8080 \
+    --email admin@example.com --password '...'
+```
+
+Creates all 163 skills via the official API in ~1 second; rerunning is safe
+(existing skills skipped). `--dry-run` checks connectivity only.
+
+`install_to_openwebui.py` is stdlib-only and reads `openwebui/skills.json` —
+the same payload the built-in **Import JSON** button consumes, so the result
+is identical to a manual bulk import.
+
+## Install (UI)
 
 Open an Open WebUI instance, go to **Workspace > Skills > Import JSON**, and
-select `openwebui/skills.json`. Individual `.md` files import one at a time.
-
-Full instructions, per-option install guides, fidelity notes, and the
-upstream-update workflow are in [`openwebui/README.md`](openwebui/README.md).
+select `openwebui/skills.json`. Individual `.md` files import one at a time;
+full per-skill and model-binding walkthroughs are in
+[`openwebui/README.md`](openwebui/README.md).
 
 ## Regenerate after upstream changes
 

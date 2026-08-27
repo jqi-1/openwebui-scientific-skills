@@ -28,6 +28,26 @@ Every skill is created immediately (no per-skill confirmation). Shows up as
 163 skills, each sharing the id/name of its upstream folder (e.g. `scanpy`,
 `database-lookup`).
 
+### Option A′ — one-click install from the command line (no UI clicks)
+
+Open WebUI has no bulk-skill API, so this installs all 163 through the official
+`POST /api/v1/skills/create` endpoint, one call each (~1 second total):
+
+```bash
+python3 install_to_openwebui.py --url http://localhost:8080 --token <JWT>
+```
+
+or, letting the script sign in as an admin:
+
+```bash
+python3 install_to_openwebui.py --url http://localhost:8080 \
+    --email admin@example.com --password '...'
+```
+
+Run from the repository root — it reads `skills.json` (identical payload to
+Option A). Idempotent: re-running skips ids that already exist. See
+`python3 install_to_openwebui.py --help`.
+
 ### Option B — import individual `.md` files
 
 Each file under [`skills/`](skills/) imports through **Workspace > Skills >
