@@ -2,7 +2,7 @@
 """One-click installer: import all converted Open WebUI skills at once.
 
 Open WebUI has no bulk-skill API endpoint, so this uses the official
-`POST /api/v1/skills/create` endpoint once per skill (163 requests against a
+`POST /api/v1/skills/create` endpoint once per skill (166 requests against a
 local instance, a couple of seconds total). The skills.json in this repo is
 the exact payload the built-in "Import JSON" button would create, so the
 result is identical to a manual bulk import — without any UI clicks.

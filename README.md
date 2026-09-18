@@ -1,6 +1,6 @@
 # Scientific Agent Skills for Open WebUI
 
-Makes all **163 skills** from
+Makes all **166 skills** from
 [`K-Dense-AI/scientific-agent-skills`](https://github.com/K-Dense-AI/scientific-agent-skills)
 usable in [Open WebUI](https://openwebui.com) by converting each Agent-Skills
 **folder** (`SKILL.md` + references + scripts + assets) into a **single
@@ -10,8 +10,8 @@ markdown skill** — Open WebUI's format for storing and importing skills
 ## Contents
 
 - `openwebui/` — the ready-to-import bundle
-  - `skills/<id>.md` — 163 importable skills
-  - `skills.json` — one-click bulk import (all 163)
+  - `skills/<id>.md` — 166 importable skills
+  - `skills.json` — one-click bulk import (all 166)
   - `manifest.json` — build index (sizes, inlined/excluded files, sha256)
   - [`openwebui/README.md`](openwebui/README.md) — install & usage
 - `convert_to_openwebui.py` — the converter (stdlib only)
@@ -24,7 +24,7 @@ per skill) — there is no bulk endpoint, and the official community site import
 **Tools and Functions only, not Skills** (verified in their docs/source; folder
 `SKILL.md` support is an unmerged PR [#21275](https://github.com/open-webui/open-webui/pull/21275)).
 The built-in **Import JSON** button is the UI's only "install many at once".
-For true one-click installs of all 163:
+For true one-click installs of all 166:
 
 ```bash
 # API token:
@@ -35,7 +35,7 @@ python3 install_to_openwebui.py --url http://localhost:8080 \
     --email admin@example.com --password '...'
 ```
 
-Creates all 163 skills via the official API in ~1 second; rerunning is safe
+Creates all 166 skills via the official API in ~1 second; rerunning is safe
 (existing skills skipped). `--dry-run` checks connectivity only.
 
 `install_to_openwebui.py` is stdlib-only and reads `openwebui/skills.json` —

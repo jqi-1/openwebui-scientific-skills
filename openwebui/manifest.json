@@ -1,30 +1,30 @@
 {
   "source": "https://github.com/K-Dense-AI/scientific-agent-skills",
-  "generated_at": "2026-08-27T11:26:43Z",
-  "skill_count": 163,
-  "content_bytes": 18371305,
+  "generated_at": "2026-09-18T05:45:48Z",
+  "skill_count": 166,
+  "content_bytes": 18773788,
   "skills": {
     "adaptyv": {
       "id": "adaptyv",
       "description": "How to use the Adaptyv Bio Foundry API and Python SDK for protein experiment design, submission, and results retrieval. Use this skill whenever the user mentions Adaptyv, Foundry API, protein binding assays, protein screening experiments, BLI/SPR assays, thermostability assays, or wants to submit protein sequences for experimental characterization. Also trigger when code imports `adaptyv`, `adaptyv_sdk`, or `FoundryClient`, or references `foundry-api-public.adaptyvbio.com`.",
       "sizes": {
-        "SKILL.md": 8776,
-        "inlined": 28915,
-        "content": 29018
+        "SKILL.md": 9734,
+        "inlined": 29873,
+        "content": 29976
       },
       "files_inlined": [
         "references/api-endpoints.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:69ba5f89e134827af6df808772f8f0ddbf64049bfbbe62f18f3ec130fdd7bd89"
+      "sha256": "sha256:ab8629929c77152d2a213d01ed4243a0a15924b48ae81972c1cec75a9a532ac4"
     },
     "aeon": {
       "id": "aeon",
       "description": "This skill should be used for time series machine learning tasks including classification, regression, clustering, forecasting, anomaly detection, segmentation, and similarity search. Use when working with temporal data, sequential patterns, or time-indexed observations requiring specialized algorithms beyond standard ML approaches. Particularly suited for univariate and multivariate time series analysis with scikit-learn compatible APIs.",
       "sizes": {
-        "SKILL.md": 12503,
-        "inlined": 75962,
-        "content": 76472
+        "SKILL.md": 13460,
+        "inlined": 76919,
+        "content": 77430
       },
       "files_inlined": [
         "references/anomaly_detection.md",
@@ -40,15 +40,35 @@
         "references/transformations.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:26b3b6a2312d7ecffbf06c34b8575ce5644e9f44654e7289da6004dbbb118a6a"
+      "sha256": "sha256:dbca1134fceb9f0634a8d042e3f9d0aca0be1f140864022f7af893ae1e0c16b5"
+    },
+    "alphagenome": {
+      "id": "alphagenome",
+      "description": "AlphaGenome API key, free for non-commercial use from deepmind.google.com/science/alphagenome. ALPHA_GENOME_API_KEY is accepted as an alternative spelling.",
+      "sizes": {
+        "SKILL.md": 15796,
+        "inlined": 109656,
+        "content": 108867
+      },
+      "files_inlined": [
+        "references/atlas.md",
+        "references/interpretation.md",
+        "references/model-api.md",
+        "scripts/_common.py",
+        "scripts/atlas_link.py",
+        "scripts/atlas_query.py",
+        "scripts/score_variants.py"
+      ],
+      "files_excluded": [],
+      "sha256": "sha256:decf66e344738d220280db0eb05e1a59ebd2c249c40561780401b82ee8abce29"
     },
     "analytical-method-validation": {
       "id": "analytical-method-validation",
       "description": "Plan, execute, and document validation, verification, and transfer of analytical procedures under the governing framework - ICH Q2(R2) and Q14, USP <1220>/<1225>/<1226>, ICH M10 bioanalytical, CLSI EP, or ISO/IEC 17025. Use for HPLC, LC-MS/MS, GC, CE, ICP-MS, dissolution, qNMR, qPCR, NIR, and ligand binding or cell-based assays whenever the question is whether a procedure is fit for its intended purpose. Triggers include \"method validation\", \"analytical method validation\", \"AMV\", \"validation protocol\", \"acceptance criteria\", \"linearity\", \"reportable range\", \"accuracy and precision\", \"repeatability\", \"intermediate precision\", \"recovery\", \"LOD\", \"LOQ\", \"detection limit\", \"quantitation limit\", \"specificity\", \"robustness\", \"method transfer\", \"method comparison\", \"Deming\", \"Passing-Bablok\", \"Bland-Altman\", \"equivalence testing\", \"OOS investigation\", \"ICH Q2\", \"Q2(R2)\", \"Q14\", \"USP 1225\", \"ICH M10\", \"incurred sample reanalysis\", \"ISR\", \"CLSI EP\", and any request to show that an assay works.",
       "sizes": {
-        "SKILL.md": 16082,
-        "inlined": 206476,
-        "content": 206828
+        "SKILL.md": 17040,
+        "inlined": 207434,
+        "content": 207786
       },
       "files_inlined": [
         "references/compendial-and-clsi.md",
@@ -69,15 +89,15 @@
         "assets/validation-report-template.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:49c2f3983ae5677da03684a41f49de10893bb3a13ed8ba233a727142b9578394"
+      "sha256": "sha256:b18910cca7d0f4b9d6b4e0ee9eb58e1a3d74e7dd173129211ce09c405ee0e567"
     },
     "anndata": {
       "id": "anndata",
       "description": "Data structure for annotated matrices in single-cell analysis. Use when working with .h5ad files or integrating with the scverse ecosystem. This is the data format skill—for analysis workflows use scanpy; for probabilistic models use scvi-tools; for population-scale queries use cellxgene-census.",
       "sizes": {
-        "SKILL.md": 11920,
-        "inlined": 67849,
-        "content": 68201
+        "SKILL.md": 12877,
+        "inlined": 68806,
+        "content": 69159
       },
       "files_inlined": [
         "references/best_practices.md",
@@ -87,15 +107,15 @@
         "references/manipulation.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:0057993713c8ed9ef0e8bcb35570583181da8c97858d3ad6a2636b608f3eaa0e"
+      "sha256": "sha256:14242ee4e2d2d7c7ea17be9dc76f8389c656e43e9344e7a9605b331205393c28"
     },
     "arbor": {
       "id": "arbor",
       "description": "Autonomously improve a real artifact (code, training recipe, agent harness, data pipeline, prompt) against an objective and an evaluator, using Hypothesis Tree Refinement (HTR) from the Arbor paper. Use this whenever someone wants to iteratively optimize something over many experiments without overfitting — e.g. \"get my model's eval score up\", \"improve this agent/harness\", \"tune this pipeline\", \"beat the baseline on this benchmark\", \"run a search over approaches and keep the best\", \"do an MLE-bench / Kaggle-style optimization\", or any long-horizon \"make this artifact better and don't just memorize the dev set\" task. Trigger it even when the user doesn't say \"Arbor\" or \"hypothesis tree\" but describes repeated experiment-and-evaluate loops, branching exploration of competing ideas, or worries about a dev/test gap. Runs Claude itself as the coordinator with subagent executors in isolated git worktrees; for the standalone `arbor` CLI tool see references/arbor-upstream.md.",
       "sizes": {
-        "SKILL.md": 13607,
-        "inlined": 54632,
-        "content": 54921
+        "SKILL.md": 14565,
+        "inlined": 55590,
+        "content": 55879
       },
       "files_inlined": [
         "references/arbor-upstream.md",
@@ -105,15 +125,15 @@
         "scripts/tree.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:e7fc9ddc54a5cbc7cd31fd4b531d8b741fff06824a134b5805fbbd47cde0f1b1"
+      "sha256": "sha256:704540b984ed78325a57f76466e4598d63d91e2cf423dcbcdc20a13cfda8660c"
     },
     "arboreto": {
       "id": "arboreto",
       "description": "Infer gene regulatory networks (GRNs) from gene expression data using scalable algorithms (GRNBoost2, GENIE3). Use when analyzing transcriptomics data (bulk RNA-seq, single-cell RNA-seq) to identify transcription factor-target gene relationships and regulatory interactions. Supports distributed computation for large-scale datasets.",
       "sizes": {
-        "SKILL.md": 8457,
-        "inlined": 27786,
-        "content": 28291
+        "SKILL.md": 9414,
+        "inlined": 28743,
+        "content": 29249
       },
       "files_inlined": [
         "references/algorithms.md",
@@ -122,15 +142,15 @@
         "scripts/basic_grn_inference.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:a2210658738a7a8a4bfb773a42bf96aa153d0056ea6c37eb5b45448f9ee118f2"
+      "sha256": "sha256:6b444b41ff107b28a59e9ef1b1471954a8b408ab82853cfc37cfbe9a39ad0bba"
     },
     "astropy": {
       "id": "astropy",
       "description": "Core Python library for astronomy and astrophysics workflows that need Astropy APIs, including units/quantities, coordinates, FITS I/O, tables, time systems, WCS, and cosmology. Use when implementing or debugging astronomical data analysis code with Astropy.",
       "sizes": {
-        "SKILL.md": 14469,
-        "inlined": 70047,
-        "content": 70402
+        "SKILL.md": 15426,
+        "inlined": 71004,
+        "content": 71360
       },
       "files_inlined": [
         "references/coordinates.md",
@@ -142,15 +162,15 @@
         "references/wcs_and_other_modules.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:fe1e63f2d4623f23426aae6ab0e972fd5fb4c53b3480b5906946211b8e3b12d4"
+      "sha256": "sha256:27fb8b147f57777d8259babe3b909b7d06449666b11f1c179124a204e44fd07f"
     },
     "autoskill": {
       "id": "autoskill",
       "description": "Optional Foundry access for drafting.",
       "sizes": {
-        "SKILL.md": 11755,
-        "inlined": 42727,
-        "content": 42512
+        "SKILL.md": 12713,
+        "inlined": 43685,
+        "content": 43470
       },
       "files_inlined": [
         "references/https-proxy.md",
@@ -169,15 +189,15 @@
         "config.yaml"
       ],
       "files_excluded": [],
-      "sha256": "sha256:565fdafbd71c63663051b96d67a4044d719fc5cab8f04516f8d01e544e1fecd1"
+      "sha256": "sha256:202919f8e46c3660bf4de9a32e5f63c7aae8dac80466e321386476e6d235e4a1"
     },
     "benchling-integration": {
       "id": "benchling-integration",
       "description": "Staging API key (multi-env setups).",
       "sizes": {
-        "SKILL.md": 7619,
-        "inlined": 69361,
-        "content": 68591
+        "SKILL.md": 8577,
+        "inlined": 70319,
+        "content": 69549
       },
       "files_inlined": [
         "references/api_endpoints.md",
@@ -187,7 +207,7 @@
         "references/sdk_reference.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:1d7577f9f01aab10be6c8dbecd4e67b7efe808c68ee8e41c0dfb60f2468ae0e4"
+      "sha256": "sha256:57befa3d047797ac0a95a0b5f5a89189db855cdabc02abd4d5d89c9b16bf90b8"
     },
     "bgpt-paper-search": {
       "id": "bgpt-paper-search",
@@ -226,9 +246,9 @@
       "id": "biopython",
       "description": "NCBI API key to raise Entrez rate limits.",
       "sizes": {
-        "SKILL.md": 16084,
-        "inlined": 99931,
-        "content": 99659
+        "SKILL.md": 17041,
+        "inlined": 100888,
+        "content": 100617
       },
       "files_inlined": [
         "references/advanced.md",
@@ -240,15 +260,15 @@
         "references/structure.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:d322b4d20b3b7bb099cbad07fb413e4ca0ff2cc7f5db31da500ce4b7286f678a"
+      "sha256": "sha256:79e7e765e97f5fe2fb9fcf89ffb44d7377438df3aa3d2421eec44a5bab636b5f"
     },
     "bioservices": {
       "id": "bioservices",
       "description": "Email for NCBI service identification.",
       "sizes": {
-        "SKILL.md": 12124,
-        "inlined": 108606,
-        "content": 108423
+        "SKILL.md": 13081,
+        "inlined": 109563,
+        "content": 109381
       },
       "files_inlined": [
         "references/identifier_mapping.md",
@@ -260,15 +280,15 @@
         "scripts/protein_analysis_workflow.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:48c80b97539de3391144082c5a8c09226b010040e0a5e19c9f79156af1ab98d1"
+      "sha256": "sha256:63bb074e304efb76a8427d2d45bc6d6c8247b2e8702a3370b38a0aba713f1918"
     },
     "bulk-rnaseq": {
       "id": "bulk-rnaseq",
       "description": "End-to-end bulk RNA-seq orchestrator — takes raw FASTQ reads through QC and trimming (FastQC, fastp/Trim Galore), alignment and quantification (STAR, Salmon, featureCounts), assembles a gene-level counts matrix, then hands off to differential expression (pydeseq2), pathway/GSEA enrichment (pathway-enrichment), and publication figures (scientific-visualization). Use whenever the user has bulk RNA-seq reads or quant output and wants a complete, reproducible differential-expression workflow — e.g. \"analyze my RNA-seq\", \"FASTQ to DESeq2\", \"run nf-core/rnaseq\", \"STAR/Salmon quantification\", \"build a counts matrix for DESeq2\", or \"go from reads to differentially expressed genes and enriched pathways\". Routes between an nf-core/rnaseq (Nextflow) path and a standalone STAR/Salmon path, and covers experimental design, strandedness, and QC gates. For single-cell RNA-seq use the scanpy skill instead.",
       "sizes": {
-        "SKILL.md": 14555,
-        "inlined": 53797,
-        "content": 54078
+        "SKILL.md": 15513,
+        "inlined": 54755,
+        "content": 55036
       },
       "files_inlined": [
         "references/counts-and-handoff.md",
@@ -279,15 +299,15 @@
         "scripts/validate_samplesheet.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:ba57df5f7b6c72a1af09707d7425f5e2afe2ade1c7cdcda0888940af0a448c70"
+      "sha256": "sha256:2f4351536b985151b7a4b3be5947ba805e05cd828783d0956cc2800bede4f3ec"
     },
     "cellxgene-census": {
       "id": "cellxgene-census",
       "description": "Query the CZ CELLxGENE Census programmatically for versioned public single-cell and spatial transcriptomics data. Use when you need population-scale cell metadata, gene expression slices, Census summary counts, source H5AD URIs/downloads, embeddings, spatial Census data, or reference atlas comparisons across organisms, tissues, diseases, assays, and cell types. For analyzing your own local single-cell data use scanpy, anndata, or scvi-tools.",
       "sizes": {
-        "SKILL.md": 10419,
-        "inlined": 39174,
-        "content": 39366
+        "SKILL.md": 11377,
+        "inlined": 40132,
+        "content": 40324
       },
       "files_inlined": [
         "references/census_schema.md",
@@ -295,15 +315,15 @@
         "references/core_workflow_patterns.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:a8726024996be0958c556958c17f92816d0b5a8fd6d72a1b09f7b0494fd3082b"
+      "sha256": "sha256:c3926a71c9ad56a16831a0be0cb6ab34430e3d70c919d71353e96d2b737f7482"
     },
     "cirq": {
       "id": "cirq",
       "description": "Google quantum computing framework. Use when targeting Google Quantum AI hardware, designing noise-aware circuits, or running quantum characterization experiments. Best for Google hardware, noise modeling, and low-level circuit design. For IBM hardware use qiskit; for quantum ML with autodiff use pennylane; for physics simulations use qutip.",
       "sizes": {
-        "SKILL.md": 12204,
-        "inlined": 78135,
-        "content": 78545
+        "SKILL.md": 13161,
+        "inlined": 79092,
+        "content": 79503
       },
       "files_inlined": [
         "references/building.md",
@@ -314,15 +334,15 @@
         "references/transformation.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:d8de4c7e305aaceeb377499c7c3289101e361e981e12d2dc4b976bf36642e731"
+      "sha256": "sha256:a5996aa7140d73f6c1d9bbce453845f27b6e4ad40553f647282271d50353d621"
     },
     "citation-management": {
       "id": "citation-management",
       "description": "Contact email for the faster OpenAlex polite pool.",
       "sizes": {
-        "SKILL.md": 14705,
-        "inlined": 277654,
-        "content": 277694
+        "SKILL.md": 15663,
+        "inlined": 278612,
+        "content": 278652
       },
       "files_inlined": [
         "references/best_practices.md",
@@ -347,15 +367,15 @@
         "assets/citation_checklist.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:3dadb6f9ac53338adf2b401e850fbbb9b74f9c2f419a680f40cc79e661081c6a"
+      "sha256": "sha256:965e5fecf32aebed8b9725bc0e180c721e7f04352731dee1f9786b905e2d8b01"
     },
     "clinical-decision-support": {
       "id": "clinical-decision-support",
       "description": "Prepare and validate research-only clinical decision-support evaluation, evidence-profile, cohort, survival, biomarker/model, privacy, and governance artifacts. Use for aggregate or synthetic research documentation and traceability—not patient care or live clinical operation.",
       "sizes": {
-        "SKILL.md": 12244,
-        "inlined": 195066,
-        "content": 196389
+        "SKILL.md": 13202,
+        "inlined": 196024,
+        "content": 197347
       },
       "files_inlined": [
         "references/README.md",
@@ -387,15 +407,15 @@
         "assets/survival_analysis_plan_template.json"
       ],
       "files_excluded": [],
-      "sha256": "sha256:2ebfec59661e6b5144104244010934e9f8c056f7ddecdf1f6244d7aa017ac1e5"
+      "sha256": "sha256:37c7252572b9558aa2481eb2e80d3fcace9f08938681fdc8122aa780c64af0d6"
     },
     "clinical-reports": {
       "id": "clinical-reports",
       "description": "Create safety-bounded draft structures and run local deterministic checks for clinical case, diagnostic, trial, safety, and aggregate research reports. Use only with synthetic, de-identified, or aggregate inputs and verified source-fact manifests; every output requires qualified review.",
       "sizes": {
-        "SKILL.md": 13736,
-        "inlined": 193278,
-        "content": 195205
+        "SKILL.md": 14694,
+        "inlined": 194236,
+        "content": 196163
       },
       "files_inlined": [
         "references/README.md",
@@ -435,22 +455,22 @@
         "assets/trial_protocol_reporting_checklist.json"
       ],
       "files_excluded": [],
-      "sha256": "sha256:643f3a658689bb4be48d369d67c64bb3438cd854a94e4f6279e4cfdea7f3f454"
+      "sha256": "sha256:a26dba103c8f07f7edcec4ce2ea645ab16edf8c55a5dde767cc449cb6a5910f6"
     },
     "cobrapy": {
       "id": "cobrapy",
       "description": "Constraint-based metabolic modeling (COBRA). FBA, FVA, gene knockouts, flux sampling, SBML models, for systems biology and metabolic engineering analysis.",
       "sizes": {
-        "SKILL.md": 14478,
-        "inlined": 53973,
-        "content": 54098
+        "SKILL.md": 14521,
+        "inlined": 54952,
+        "content": 55078
       },
       "files_inlined": [
         "references/api_quick_reference.md",
         "references/workflows.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:c55fe6e838ae4dad2753c6359a09d97205717efcdbfeaabf15585dda75b86cde"
+      "sha256": "sha256:e484d7e3388c5daf18a922aa96c9e88c6d51e00a0ef9c2c204d1f937be13eb5b"
     },
     "consciousness-council": {
       "id": "consciousness-council",
@@ -470,9 +490,9 @@
       "id": "dask",
       "description": "Distributed computing for larger-than-RAM pandas/NumPy workflows. Use when you need to scale existing pandas/NumPy code beyond memory or across clusters. Best for parallel file processing, distributed ML, integration with existing pandas code. For out-of-core analytics on single machine use vaex; for in-memory speed use polars.",
       "sizes": {
-        "SKILL.md": 15380,
-        "inlined": 78255,
-        "content": 78476
+        "SKILL.md": 16337,
+        "inlined": 79212,
+        "content": 79434
       },
       "files_inlined": [
         "references/arrays.md",
@@ -483,15 +503,15 @@
         "references/schedulers.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:1a1c9f4cc1599f80084dcbbd19c5a9ff32a34cd964676902a6dafcd114f82209"
+      "sha256": "sha256:15b569f6f2702b19457a6e46812cbde38bbf1615ccaef9039da79ce7a9448798"
     },
     "database-lookup": {
       "id": "database-lookup",
       "description": "Query documented public database APIs with explicit endpoints, filters, pagination, and provenance. Use when a scientific, regulatory, financial, or other database-backed fact must be retrieved reproducibly from a named source rather than inferred from general knowledge.",
       "sizes": {
-        "SKILL.md": 25982,
-        "inlined": 386414,
-        "content": 388619
+        "SKILL.md": 27284,
+        "inlined": 393843,
+        "content": 396089
       },
       "files_inlined": [
         "references/addgene.md",
@@ -543,6 +563,7 @@
         "references/metabolomics-workbench.md",
         "references/monarch.md",
         "references/mousemine.md",
+        "references/myvariant.md",
         "references/nasa-exoplanet-archive.md",
         "references/nasa.md",
         "references/ncbi-gene.md",
@@ -558,6 +579,7 @@
         "references/pubchem.md",
         "references/quickgo.md",
         "references/reactome.md",
+        "references/regulomedb.md",
         "references/retrieval-contract.md",
         "references/rummageo.md",
         "references/sdss.md",
@@ -576,15 +598,31 @@
         "references/zinc.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:7092d5db6b33351af315f9807753daa02d0309483733e9be3cfb43f920fa589d"
+      "sha256": "sha256:fb7c3603cfea5db768e0d660c89d2c974c7bafe700b8dadc9ed5941944e4a011"
+    },
+    "datalad": {
+      "id": "datalad",
+      "description": "Retrieve, version, and publish scientific datasets with DataLad and git-annex, and capture computational provenance with datalad run, rerun, and containers-run. Use when cloning or fetching data from OpenNeuro, DANDI, datasets.datalad.org, or any DataLad dataset; when a file in a dataset reads as a broken symlink or a small pointer instead of real data; when an analysis needs a machine-readable record of how each output was produced so it can be re-executed; or when publishing a dataset to siblings such as a GitHub repository plus a storage remote. Also use to decide between DataLad and plain Git for a data-carrying repository.",
+      "sizes": {
+        "SKILL.md": 15559,
+        "inlined": 45216,
+        "content": 45081
+      },
+      "files_inlined": [
+        "references/data-access.md",
+        "references/provenance.md",
+        "references/publishing.md"
+      ],
+      "files_excluded": [],
+      "sha256": "sha256:43cc47f7ee5117b5153800517dfeb921ab41577d3e6c69841622dd12ee992f95"
     },
     "datamol": {
       "id": "datamol",
       "description": "Pythonic wrapper around RDKit with simplified interface and sensible defaults. Preferred for standard drug discovery including SMILES parsing, standardization, descriptors, fingerprints, clustering, 3D conformers, parallel processing. Returns native rdkit.Chem.Mol objects. For advanced control or custom parameters, use rdkit directly.",
       "sizes": {
-        "SKILL.md": 8008,
-        "inlined": 57300,
-        "content": 57679
+        "SKILL.md": 8966,
+        "inlined": 58258,
+        "content": 58637
       },
       "files_inlined": [
         "references/conformers_module.md",
@@ -597,15 +635,15 @@
         "references/workflow_patterns.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:192918c72b5010927442600f372a6e9e8648f63adf29eea24f8a220f26cc51f4"
+      "sha256": "sha256:8e4867b54d16c2d0459c04b94e5b6e356510b64f1d6ce4ad5fa495371d38c5b8"
     },
     "deepchem": {
       "id": "deepchem",
       "description": "Molecular ML with diverse featurizers and pre-built datasets. Use for property prediction (ADMET, toxicity) with traditional ML or GNNs when you want extensive featurization options and MoleculeNet benchmarks. Best for quick experiments with pre-trained models, diverse molecular representations. For graph-first PyTorch workflows use torchdrug; for benchmark datasets use pytdc.",
       "sizes": {
-        "SKILL.md": 9772,
-        "inlined": 75502,
-        "content": 75809
+        "SKILL.md": 10730,
+        "inlined": 76460,
+        "content": 76767
       },
       "files_inlined": [
         "references/api_reference.md",
@@ -617,7 +655,7 @@
         "scripts/transfer_learning.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:72b01c8778871b9925b5a33df062d4b26279410111ec8756fd7e0e3e0d04a14e"
+      "sha256": "sha256:c7d841999d6bcff4a5d998772b20e98a09a697c5c401c4559916f09ba2e162a3"
     },
     "deepspot-m": {
       "id": "deepspot-m",
@@ -638,9 +676,9 @@
       "id": "deeptools",
       "description": "NGS analysis toolkit. BAM to bigWig conversion, QC (correlation, PCA, fingerprints), heatmaps/profiles (TSS, peaks), for ChIP-seq, RNA-seq, ATAC-seq visualization.",
       "sizes": {
-        "SKILL.md": 15320,
-        "inlined": 91958,
-        "content": 92252
+        "SKILL.md": 16278,
+        "inlined": 92916,
+        "content": 93210
       },
       "files_inlined": [
         "references/core_workflows.md",
@@ -653,7 +691,7 @@
         "assets/quick_reference.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:20ce1d0fb52c8365da5c3ab6d74bb5e1be5c0ad82247b8d0bb58bbd8bbc27887"
+      "sha256": "sha256:304f5bff7da847a231cdadca9940b1bfbcf4b1ecec4cfd8fcff53c3d71161bf1"
     },
     "depmap": {
       "id": "depmap",
@@ -687,9 +725,9 @@
       "id": "diffdock",
       "description": "DiffDock and DiffDock-L molecular docking. Use for protein-small-molecule pose prediction from PDB or sequence plus SMILES/SDF/MOL2, batch docking, virtual screening, and pose-confidence interpretation. Not for binding affinity prediction.",
       "sizes": {
-        "SKILL.md": 16343,
-        "inlined": 72014,
-        "content": 72222
+        "SKILL.md": 17289,
+        "inlined": 72960,
+        "content": 73169
       },
       "files_inlined": [
         "references/confidence_and_limitations.md",
@@ -702,15 +740,15 @@
         "assets/custom_inference_config.yaml"
       ],
       "files_excluded": [],
-      "sha256": "sha256:140359dadf3a33d303040f4fd1a77a006f3325dd56a495c4d664a152ce7e3b34"
+      "sha256": "sha256:b0fdd09fdb8d3a1f8534e71d3ac8f17fbcd6b564b4bf49873b9731432eb440c2"
     },
     "dnanexus-integration": {
       "id": "dnanexus-integration",
       "description": "Build and operate reproducible genomics workloads on DNAnexus with the dx CLI, dxpy, apps/applets, native workflows, dxCompiler, and Nextflow. Use for DNAnexus data transfers, dxapp.json development, execution monitoring, workflow import, and project automation.",
       "sizes": {
-        "SKILL.md": 10820,
-        "inlined": 147915,
-        "content": 148432
+        "SKILL.md": 11778,
+        "inlined": 148873,
+        "content": 149390
       },
       "files_inlined": [
         "references/app-development.md",
@@ -726,7 +764,7 @@
         "scripts/validate_dxapp.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:b097156a491d90b0a159e116c06baab7f210e1c3d3fd4adc6d73d53e0338ef1e"
+      "sha256": "sha256:7847f743c4bb9c985fdb9d24601fd45a699ee1cffdb77e5dc3bd894a35e06c4c"
     },
     "docx": {
       "id": "docx",
@@ -806,9 +844,9 @@
       "id": "esm",
       "description": "Use when working directly with the `esm` Python SDK, ESM3 or ESMC model IDs, Forge/Biohub inference clients, or ESMFold2 folding workflows.",
       "sizes": {
-        "SKILL.md": 12291,
-        "inlined": 85362,
-        "content": 85874
+        "SKILL.md": 13248,
+        "inlined": 86319,
+        "content": 86832
       },
       "files_inlined": [
         "references/biohub-platform.md",
@@ -818,15 +856,15 @@
         "references/workflows.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:9907c677ece0b181d751079d837479f233e909f44328499976fe1c12a189a64e"
+      "sha256": "sha256:fab7e04c1098f39392337094919ef16b38dbb3b5ce9aea36f53f39c6869e6a0a"
     },
     "etetoolkit": {
       "id": "etetoolkit",
       "description": "Analyze, manipulate, compare, annotate, and visualize phylogenetic or other hierarchical trees with ETE 4. Use for Newick/Nexus tree I/O, topology edits and pattern matching, Robinson-Foulds comparisons, gene-tree evolutionary events and reconciliation, NCBI/GTDB taxonomy, SmartView exploration, and publication rendering. Do not use it to infer trees from raw sequences; align sequences and infer a tree first.",
       "sizes": {
-        "SKILL.md": 10724,
-        "inlined": 103881,
-        "content": 104177
+        "SKILL.md": 11682,
+        "inlined": 104839,
+        "content": 105135
       },
       "files_inlined": [
         "references/api_reference.md",
@@ -838,7 +876,7 @@
         "scripts/tree_operations.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:26d6b376d50321d56d2b271e956e6aaec1bbc7fed772df935689979f45755fb6"
+      "sha256": "sha256:50af47fd6a8bac557f99898e2598a9d8d4f7c07935d1a3b2161820a58aa1a508"
     },
     "exa-search": {
       "id": "exa-search",
@@ -861,9 +899,9 @@
       "id": "experimental-design",
       "description": "Design experiments and studies BEFORE data is collected — choosing a design, randomizing, blocking, and laying out treatment combinations so results are interpretable. Use whenever someone is planning a study, asks how to assign subjects/samples to groups, mentions randomization, blocking, stratification, controls, factorial or fractional-factorial designs, design of experiments (DOE), screening many factors, response-surface optimization, crossover or repeated-measures or split-plot designs, cluster/group randomization, Latin squares, plate layouts, batch/run-order effects, replication vs. pseudoreplication, or sequential/adaptive/group-sequential designs. Trigger even for informal phrasings like \"how should I set up this experiment\", \"how do I avoid confounding\", \"what's the best way to test these 6 factors\", or \"assign these mice to conditions\". For computing the sample size or power once the design is chosen, use statistical-power; for analyzing data already collected, use statistical-analysis.",
       "sizes": {
-        "SKILL.md": 12910,
-        "inlined": 54146,
-        "content": 54318
+        "SKILL.md": 13868,
+        "inlined": 55104,
+        "content": 55276
       },
       "files_inlined": [
         "references/design_types.md",
@@ -874,15 +912,15 @@
         "scripts/randomization.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:8f1ce225b6d2f722aff6426ae1a447926ded4d14abb1b7bd22741ebcc4e10766"
+      "sha256": "sha256:a68cdb740fc7954a82f36f19c036cd8e9e498d2d620ffc74e116a60da832e0bd"
     },
     "exploratory-data-analysis": {
       "id": "exploratory-data-analysis",
       "description": "Perform bounded, local exploratory analysis of explicitly supported scientific files. Use for redacted CSV/TSV/JSON profiles; optional NumPy, HDF5, FASTA/FASTQ, and basic image metadata inspection; missingness/leakage audits; outlier and transformation sensitivity; and rigorous EDA report scaffolds. Other domain formats are reference-only and unknown formats fail closed.",
       "sizes": {
-        "SKILL.md": 12627,
-        "inlined": 205478,
-        "content": 206563
+        "SKILL.md": 13585,
+        "inlined": 206436,
+        "content": 207521
       },
       "files_inlined": [
         "references/bioinformatics_genomics_formats.md",
@@ -907,15 +945,15 @@
         "assets/report_template.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:6632e1c8c0c887a12383178171ff8ee9e63f85e757b62b9b5e0ac42be5a16f87"
+      "sha256": "sha256:b6a52220f64eb9719de7902f92062aa188924249613cc2268852d09fab6d0c05"
     },
     "flowio": {
       "id": "flowio",
       "description": "Read, inspect, and write Flow Cytometry Standard (FCS) 2.0, 3.0, and 3.1 files with FlowIO. Use for low-level FCS metadata and channel inspection, NumPy event extraction, multi-dataset files, table export, and FCS 3.1 creation; use FlowKit for compensation, cytometry transforms, gating, or FlowJo workspaces.",
       "sizes": {
-        "SKILL.md": 10947,
-        "inlined": 72298,
-        "content": 72578
+        "SKILL.md": 11905,
+        "inlined": 73256,
+        "content": 73536
       },
       "files_inlined": [
         "references/api_reference.md",
@@ -926,15 +964,15 @@
         "scripts/inspect_fcs.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:a7ef27ea9883665389b60c483c31a1610c9d1f8767efc998ee4b8a8e76d11038"
+      "sha256": "sha256:a4920c57f3d1b05a8c3e5aef1343be1e7efabf746123925c980ef820b95ba3b5"
     },
     "fluidsim": {
       "id": "fluidsim",
       "description": "Plan, configure, inspect, restart, and analyze bounded FluidSim computational-fluid-dynamics simulations with explicit numerical-validity and HPC safety checks. Use for FluidSim solver selection, parameter review, FFT/MPI setup, output diagnostics, or restart compatibility.",
       "sizes": {
-        "SKILL.md": 11580,
-        "inlined": 175938,
-        "content": 176394
+        "SKILL.md": 12538,
+        "inlined": 176896,
+        "content": 177352
       },
       "files_inlined": [
         "references/advanced_features.md",
@@ -954,30 +992,44 @@
         "scripts/solver_config_validator.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:9e7ac5383d7bf5ea204b6e196b6858f344b04263d652b9e6a1057de30efff96d"
+      "sha256": "sha256:4e6da6fd717b24fabe37f624c59e795f486178e0f247cac5ad7780e80a190ae6"
+    },
+    "folklore-variant-evidence": {
+      "id": "folklore-variant-evidence",
+      "description": "Retrieve ClinGen gene-disease validity assertions for a public gene or disease, and review source-linked public evidence and literature for one supported GRCh38 germline nuclear SNV or simple indel through Folklore Clinical Variant Interpretation MCP. Use when a scientific agent must branch deterministically on resolved, ambiguous, not-found, invalid, unsupported, or unavailable variant outcomes; chain a resolved public variant into related literature or publication details; or preserve evidence provenance without accepting patient, phenotype, family, segregation, or private case data.",
+      "sizes": {
+        "SKILL.md": 10724,
+        "inlined": 14273,
+        "content": 14388
+      },
+      "files_inlined": [
+        "references/mcp-contract.md"
+      ],
+      "files_excluded": [],
+      "sha256": "sha256:ee567bdc88d9078bfc30700f88906414f41c5ce068d39f53295ba9ef73afbd8e"
     },
     "generate-image": {
       "id": "generate-image",
       "description": "OpenRouter API key used for image generation.",
       "sizes": {
-        "SKILL.md": 14436,
-        "inlined": 55664,
-        "content": 54947
+        "SKILL.md": 15394,
+        "inlined": 56622,
+        "content": 55905
       },
       "files_inlined": [
         "references/models.md",
         "scripts/generate_image.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:5ddd6bc169fc743259a0f206e8747dd705ef565259dc90482339b92f5d49c451"
+      "sha256": "sha256:6879edf083315787c847aa6cbfda278b683fd8327cc1e64e4dd9e987c84d787d"
     },
     "geniml": {
       "id": "geniml",
       "description": "Use Geniml for audited local genomic-interval workflows: validate BED and universe contracts, plan Region2Vec or scEmbed runs, inspect model/tokenizer compatibility, and assess consensus universes.",
       "sizes": {
-        "SKILL.md": 12937,
-        "inlined": 155871,
-        "content": 156383
+        "SKILL.md": 13895,
+        "inlined": 156829,
+        "content": 157341
       },
       "files_inlined": [
         "references/bedspace.md",
@@ -995,15 +1047,15 @@
         "scripts/tokenizer_compatibility.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:1df0990e705059fc7fe8003e24e6eb6b2b5793df151416a2b12130a42332e417"
+      "sha256": "sha256:182a8ba1c03cf64b4e4b2762c658886b55e53d3f3bbe19c1434f203bdf5ed460"
     },
     "genomic-coordinates": {
       "id": "genomic-coordinates",
       "description": "Convert genomic intervals between coordinate conventions, normalise and compare variant representations, and detect assembly or contig-naming mismatches before they corrupt an analysis. Use whenever coordinates cross a format, tool, or assembly boundary - converting between BED, GFF/GTF, VCF, SAM/BAM, WIG, PSL, genePred, Picard interval_list, or region strings; reconciling 0-based half-open with 1-based inclusive; left-aligning or trimming indels; checking whether two variant records describe the same change; mapping genomic to transcript, CDS, or protein positions; auditing a BED/GTF/VCF for convention violations; or diagnosing GRCh37 vs hg19 vs GRCh38 vs T2T, chr-prefix, and liftover problems. Triggers include \"off by one\", \"0-based\", \"1-based\", \"half-open\", \"coordinate system\", \"left-align\", \"normalize variant\", \"bcftools norm\", \"chr prefix\", \"wrong genome build\", \"liftover\", \"REF mismatch\", and \"HGVS\".",
       "sizes": {
-        "SKILL.md": 9050,
-        "inlined": 103607,
-        "content": 104024
+        "SKILL.md": 10008,
+        "inlined": 104565,
+        "content": 104982
       },
       "files_inlined": [
         "references/format-conventions.md",
@@ -1017,15 +1069,15 @@
         "scripts/normalize_variant.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:44edb19216f8a01bfdee05b915c7f3900a32217c57ffaf8cf4fb3bb3eed50563"
+      "sha256": "sha256:38ab783999b559b75d322be0b0d71e70100ce12fc557460d3c729b79a8050428"
     },
     "genomic-intelligence": {
       "id": "genomic-intelligence",
-      "description": "Optional gi_ bearer key for the REST /v1 API and a higher MCP quota. The hosted MCP demo runs keyless; request a key at contact@genomicintelligence.ai.",
+      "description": "Optional gi_ bearer key for the REST /v1 API and higher MCP rate and concurrency limits. The hosted MCP demo runs keyless; request a key at contact@genomicintelligence.ai.",
       "sizes": {
-        "SKILL.md": 12281,
-        "inlined": 24035,
-        "content": 22868
+        "SKILL.md": 21293,
+        "inlined": 45767,
+        "content": 44402
       },
       "files_inlined": [
         "references/api-and-auth.md",
@@ -1034,15 +1086,15 @@
         "references/tasks.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:52a97f435ba63f335463f41e3b78397561a487724cb8e171c40bdd290ea03c38"
+      "sha256": "sha256:61d8bf31a9e818a4a30ab5eb5327533e18d6018258c498cc6abe9771fa38e5d2"
     },
     "geomaster": {
       "id": "geomaster",
       "description": "Comprehensive geospatial science skill covering remote sensing, GIS, spatial analysis, machine learning for earth observation, and 30+ scientific domains. Supports satellite imagery processing (Sentinel, Landsat, MODIS, SAR, hyperspectral), vector and raster data operations, spatial statistics, point cloud processing, network analysis, cloud-native workflows (STAC, COG, Planetary Computer), and 8 programming languages (Python, R, Julia, JavaScript, C++, Java, Go, Rust) with 500+ code examples. Use for remote sensing workflows, GIS analysis, spatial ML, Earth observation data processing, terrain analysis, hydrological modeling, marine spatial analysis, atmospheric science, and any geospatial computation task.",
       "sizes": {
-        "SKILL.md": 11760,
-        "inlined": 164421,
-        "content": 160351
+        "SKILL.md": 12791,
+        "inlined": 165516,
+        "content": 161445
       },
       "files_inlined": [
         "references/advanced-gis.md",
@@ -1062,15 +1114,15 @@
         "README.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:ca49ddf46e176bacd904f2c579dc5cf37268e363d6a7e4e432d91f483ed2c8fb"
+      "sha256": "sha256:ce4191ad8ce7d95c0109cd52de2dd6d4861eef4f7f22b7f6f681162c0f05527d"
     },
     "geopandas": {
       "id": "geopandas",
       "description": "Guidance and local audit tools for Python workflows that directly use GeoPandas GeoSeries, GeoDataFrame, spatial operations, or vector-data I/O.",
       "sizes": {
-        "SKILL.md": 12205,
-        "inlined": 142756,
-        "content": 143454
+        "SKILL.md": 13163,
+        "inlined": 143714,
+        "content": 144412
       },
       "files_inlined": [
         "references/crs-management.md",
@@ -1088,15 +1140,15 @@
         "scripts/vector_inventory.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:b042e6f1925ea2c14e807515d63935e63d1f7d9cbc18310bb55c3e3c503cc1bf"
+      "sha256": "sha256:bd93fdf6c9bcc3c31606074a21ecc37e2ef20fae89998156f93e14f29ff905aa"
     },
     "get-available-resources": {
       "id": "get-available-resources",
       "description": "Detect host inventory and effective CPU, memory, disk, scheduler, container, and accelerator limits when a user asks for resource-aware planning or before a clearly resource-sensitive local workload. Produces a redacted JSON snapshot and conservative planning helpers without stress tests or assuming visible host hardware is usable.",
       "sizes": {
-        "SKILL.md": 9379,
-        "inlined": 129754,
-        "content": 130221
+        "SKILL.md": 10337,
+        "inlined": 130712,
+        "content": 131179
       },
       "files_inlined": [
         "references/resource_semantics.md",
@@ -1109,15 +1161,15 @@
         "scripts/snapshot_tools.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:9dc2f1e8083e63ace131adf06df8ebda9acaf5d0624379f60f03b6a27a91f082"
+      "sha256": "sha256:f48ec1bf8d7e28d1145a86148219edefe5fd122d5bb1151915b222d73660b699"
     },
     "gget": {
       "id": "gget",
       "description": "Fast CLI/Python queries to 20+ bioinformatics databases. Use for quick lookups: gene info, BLAST/BLAT, viral sequence downloads, AlphaFold structures, enrichment analysis, OpenTargets, COSMIC, CELLxGENE, and 8cube mouse specificity/expression data. Best for interactive exploration and simple queries. For batch processing or advanced BLAST use biopython; for multi-database Python workflows use bioservices.",
       "sizes": {
-        "SKILL.md": 7439,
-        "inlined": 113692,
-        "content": 114062
+        "SKILL.md": 8397,
+        "inlined": 114650,
+        "content": 115020
       },
       "files_inlined": [
         "references/common_workflows.md",
@@ -1130,15 +1182,15 @@
         "scripts/gene_analysis.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:23d9fac9be2dba2a6b3e3af5586559b7c5fe813ca6a39edde26fa70d38a46af7"
+      "sha256": "sha256:98c8ac950fd96241f1171b2ca9e139039ffe1f8a8e5a3e0227a1363ad03dc568"
     },
     "ginkgo-cloud-lab": {
       "id": "ginkgo-cloud-lab",
       "description": "Submit and manage protocols on Ginkgo Bioworks Cloud Lab (cloud.ginkgo.bio), a web-based interface for autonomous lab execution on Reconfigurable Automation Carts (RACs). Use when the user wants to run protein expression and purification (cell-free, E. coli, or Pichia), HiBiT or A280 or LabChip quantification, IVT mRNA/circRNA synthesis, thermal shift / developability assays, Echo-MS enzyme or analyte methods, SPR target onboarding, fluorescent pixel art, or otherwise interact with Ginkgo Cloud Lab services. Covers protocol selection, input preparation, pricing, and ordering workflows.",
       "sizes": {
-        "SKILL.md": 7324,
-        "inlined": 46664,
-        "content": 47980
+        "SKILL.md": 8311,
+        "inlined": 47651,
+        "content": 48938
       },
       "files_inlined": [
         "references/cell-free-protein-expression-hibit.md",
@@ -1160,29 +1212,29 @@
         "references/spr-target-onboarding.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:1ab446a1fce132bbeeb0f6c8fb1701994c7ba8fb6befa60f93d0f0a32e4a13d3"
+      "sha256": "sha256:adcd7d873432f8680763e3578e8d6cbb62ecb73b2dd8a716aa3f13fa5bef887c"
     },
     "glycoengineering": {
       "id": "glycoengineering",
       "description": "Analyze and engineer protein glycosylation. Scan sequences for N-glycosylation sequons (N-X-S/T), predict O-glycosylation hotspots, and access curated glycoengineering tools (NetOGlyc, GlycoShield, GlycoWorkbench). For glycoprotein engineering, therapeutic antibody optimization, and vaccine design.",
       "sizes": {
-        "SKILL.md": 12462,
-        "inlined": 18238,
-        "content": 18622
+        "SKILL.md": 13787,
+        "inlined": 19568,
+        "content": 19947
       },
       "files_inlined": [
         "references/glycan_databases.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:43a74fc78cd06bec68f0dd70aa960a927348cfc0b7c6288a31a66c0a1b6c7586"
+      "sha256": "sha256:a2bfb532ee4bda90b06cbcca0a026d259be169c77c968f180798ac1343f02b1b"
     },
     "gtars": {
       "id": "gtars",
       "description": "Use Gtars for local genomic interval models and set algebra, overlaps and counts, consensus and coverage, tokenization, fragment processing, and refget/BEDbase planning across Python, Rust, and the CLI.",
       "sizes": {
-        "SKILL.md": 12249,
-        "inlined": 136673,
-        "content": 137131
+        "SKILL.md": 13207,
+        "inlined": 137631,
+        "content": 138089
       },
       "files_inlined": [
         "references/cli.md",
@@ -1201,15 +1253,15 @@
         "scripts/tokenizer_manifest.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:c8a2538d34fa5cd05d99aa0f11f7745377c71fe34d0aae8f78fa625238bac372"
+      "sha256": "sha256:ea4aed13b278ac2d26ff81c1759c06a7912b5223e89654b7631efa57e1f20e2a"
     },
     "histolab": {
       "id": "histolab",
       "description": "Lightweight WSI tile extraction and preprocessing. Use for basic slide processing, tissue detection, tile extraction, and stain normalization for H&E images. Best for simple pipelines, dataset preparation, and quick tile-based analysis. For advanced spatial proteomics, multiplexed imaging, or deep learning pipelines use pathml.",
       "sizes": {
-        "SKILL.md": 9216,
-        "inlined": 75004,
-        "content": 75454
+        "SKILL.md": 10174,
+        "inlined": 75962,
+        "content": 76412
       },
       "files_inlined": [
         "references/core_capabilities.md",
@@ -1221,15 +1273,15 @@
         "references/visualization.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:9fcc8c961018540dd7039e079010a122e9c2edbc899a5e2d1465a9480b7b5f5e"
+      "sha256": "sha256:dd290cddb3aa97c4e6c211284a84cbfc429820d300adcb0f5e17d269ed923b9b"
     },
     "hugging-science": {
       "id": "hugging-science",
       "description": "Use when the user is doing AI/ML work in a scientific domain such as biology, chemistry, physics, astronomy, climate, genomics, materials, medicine, ecology, energy, engineering, math, drug discovery, protein design, weather modeling, theorem proving, single-cell, or PDE solving. Hugging Science is a curated catalog of scientific datasets, models, blog posts, and interactive Spaces. This skill helps discover and use resources via `datasets`, `transformers`, the HF Inference API, `gradio_client`, and methodology citations.",
       "sizes": {
-        "SKILL.md": 10089,
-        "inlined": 48542,
-        "content": 48928
+        "SKILL.md": 11047,
+        "inlined": 49500,
+        "content": 49886
       },
       "files_inlined": [
         "references/flagship-resources.md",
@@ -1240,15 +1292,15 @@
         "scripts/fetch_catalog.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:72c30e213d3c3600cdcf0d8c9dcba497c5a8b2e313cce5c34b6aa1049f34b8df"
+      "sha256": "sha256:67e531a7979df666b62b037e3b05d3d44f4359f205247151222cd1e3a4ee393f"
     },
     "hypogenic": {
       "id": "hypogenic",
       "description": "Plans and audits use of ChicagoHAI HypoGeniC/HypoRefine for LLM-assisted hypothesis generation from labeled text datasets. Use for the `hypogenic` package, its task configs, hypothesis banks, or HypoBench datasets—not for manual hypothesis formulation or scientific validation.",
       "sizes": {
-        "SKILL.md": 11718,
-        "inlined": 142422,
-        "content": 143049
+        "SKILL.md": 12676,
+        "inlined": 143380,
+        "content": 144007
       },
       "files_inlined": [
         "references/configuration.md",
@@ -1270,15 +1322,15 @@
         "assets/task_config.example.yaml"
       ],
       "files_excluded": [],
-      "sha256": "sha256:e62371f087304063215311eaec26eab4459d4226d545e6f7a733622241ebcf42"
+      "sha256": "sha256:8f51140dba217cf51836e215beae9d7dee7709b9ab3cf811793d7d88cb25add8"
     },
     "hypothesis-generation": {
       "id": "hypothesis-generation",
       "description": "Formulate evidence-bounded scientific questions, candidate hypotheses, rival explanations, causal or associational claims, discriminating predictions, measurements, and preregistration-ready analysis plans. Use when turning observations or preliminary findings into transparent, testable research plans without treating hypotheses as facts.",
       "sizes": {
-        "SKILL.md": 14701,
-        "inlined": 255211,
-        "content": 256368
+        "SKILL.md": 15659,
+        "inlined": 256169,
+        "content": 257326
       },
       "files_inlined": [
         "references/causal_inference_and_claims.md",
@@ -1309,7 +1361,7 @@
         "assets/source_ledger.csv"
       ],
       "files_excluded": [],
-      "sha256": "sha256:d1e38da850ee0fe3c62f790d858dcc48ff1e06d1a6240fd84fe2cc1d4b3e496a"
+      "sha256": "sha256:af9ea8c34235eb04086779afac234bca686313c3569700ad689ac5318c5006b7"
     },
     "imaging-data-commons": {
       "id": "imaging-data-commons",
@@ -1342,9 +1394,9 @@
       "id": "infographics",
       "description": "OpenRouter API key for the skill's LLM-powered steps.",
       "sizes": {
-        "SKILL.md": 10929,
-        "inlined": 151705,
-        "content": 148011
+        "SKILL.md": 11916,
+        "inlined": 152692,
+        "content": 148969
       },
       "files_inlined": [
         "references/color_palettes.md",
@@ -1356,15 +1408,15 @@
         "scripts/generate_infographic_ai.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:57bc0f9bd8db1c019e606612d6c32cb465d266ad2a41ab33217404b327c6409b"
+      "sha256": "sha256:f4f10774e16ce24241a170c606320f0e3f450535664d145d5cda4be592e6357e"
     },
     "iso-standards-readiness": {
       "id": "iso-standards-readiness",
       "description": "Prepares and structurally reviews readiness evidence for ISO management-system and laboratory-competence standards - ISO 13485 medical device QMS, ISO 14971 device risk management, ISO/IEC 17025 testing and calibration laboratories, and ISO 15189 medical laboratories. Use when organizing declared scope, controlled documents, risk-management files, scope of accreditation, traceability, CAPA, external-provider controls, or bounded local evidence manifests, and when separating ISO certification from laboratory accreditation, FDA QMSR inspection, CLIA certification, MDSAP, and EU MDR/IVDR evidence boundaries. Not for legal applicability, compliance, certification, or accreditation decisions; contains no clause text.",
       "sizes": {
-        "SKILL.md": 16248,
-        "inlined": 266678,
-        "content": 268128
+        "SKILL.md": 17206,
+        "inlined": 267636,
+        "content": 269086
       },
       "files_inlined": [
         "references/assurance-lanes.md",
@@ -1400,15 +1452,15 @@
         "assets/templates/traceability-matrix-template.json"
       ],
       "files_excluded": [],
-      "sha256": "sha256:ce782aacd6ea5a079637e5914b5bf2a94bb4bdc2a03c4052921fed31e8745659"
+      "sha256": "sha256:ae5dd40b431f2d973a36fb751bc9f9b9bf5dde595c20000085735480fce34c27"
     },
     "lab-hardware-cad": {
       "id": "lab-hardware-cad",
       "description": "Design custom laboratory hardware as parametric build123d models and export fabrication-ready STEP, STL, and DXF files - microfluidic chips and molds, optomechanical mounts and breadboard adapters, cuvette and microplate holders, tube racks, animal-behavior rigs, and 3D-printed instrument fixtures. Use when a research task needs a physical part that must mate with standardized labware, an optical table, a cage system, or a printer, CNC, or laser process.",
       "sizes": {
-        "SKILL.md": 20971,
-        "inlined": 172760,
-        "content": 172994
+        "SKILL.md": 21929,
+        "inlined": 173718,
+        "content": 173952
       },
       "files_inlined": [
         "references/behavior-rigs.md",
@@ -1425,15 +1477,15 @@
         "assets/standards.json"
       ],
       "files_excluded": [],
-      "sha256": "sha256:6c4e6ca8cc2c41e74c7b8dc21e948f062eeeb24ae08c1d0a47b992c41592a37f"
+      "sha256": "sha256:639216c6fc0e17bdb77ac1a39b4288f317d6b602c6c731281c00a9b0380ad21a"
     },
     "labarchive-integration": {
       "id": "labarchive-integration",
       "description": "Securely integrate with the official LabArchives ELN REST-like API and Inventory API v1. Use for regional endpoint selection, signed-request construction, user authorization and UID flows, local LA container validation, and verified LabArchives integration workflows.",
       "sizes": {
-        "SKILL.md": 9732,
-        "inlined": 79228,
-        "content": 79438
+        "SKILL.md": 10690,
+        "inlined": 80186,
+        "content": 80396
       },
       "files_inlined": [
         "references/api_reference.md",
@@ -1445,15 +1497,15 @@
         "scripts/setup_config.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:47d415660cc29f8a588599761a8b885f5d3a87f2eb6a72779cddcd48968237ad"
+      "sha256": "sha256:4897eaecb4963099d9b4bafcaa499b8ff3081e1ea9110099d012af410d026170"
     },
     "lamindb": {
       "id": "lamindb",
       "description": "Use when working with LaminDB, the open-source lineage-native lakehouse for biological datasets and models. Covers setup, artifact registration, query/search, lineage tracking, validation, ontology-backed annotation with Bionty, collections, branches, storage, and workflow integrations.",
       "sizes": {
-        "SKILL.md": 16125,
-        "inlined": 93189,
-        "content": 93738
+        "SKILL.md": 17082,
+        "inlined": 94146,
+        "content": 94696
       },
       "files_inlined": [
         "references/annotation-validation.md",
@@ -1464,15 +1516,15 @@
         "references/setup-deployment.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:d6d1cc41d959c2eb58803266bbdb316832c4a43fc2ce31d532898d1d8a6f5bec"
+      "sha256": "sha256:7a8c3ff0664a3ffdc249bf6cb7eb3bb6911730e0d0805aef2d869ae6fbdc1681"
     },
     "latchbio-integration": {
       "id": "latchbio-integration",
       "description": "Build, register, debug, and operate bioinformatics workflows on Latch using the Python SDK, CLI, Latch Data and Registry, Nextflow, Snakemake, programmatic execution, and Latch MCP. Use when authoring or deploying Latch workflows, configuring resources or interfaces, moving data, integrating Registry, or launching and monitoring runs.",
       "sizes": {
-        "SKILL.md": 8525,
-        "inlined": 86082,
-        "content": 86523
+        "SKILL.md": 9483,
+        "inlined": 87040,
+        "content": 87481
       },
       "files_inlined": [
         "references/data-management.md",
@@ -1487,15 +1539,15 @@
         "scripts/inspect_latch_sdk.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:206932b8c342898117bd5379f3cd76bd74066cf9a09a21b55817e3110e0b2e24"
+      "sha256": "sha256:0d91b04f7bd828d518773f39ee4107b20174a3bd8ae6f835ea63a7b0da77849a"
     },
     "latex-posters": {
       "id": "latex-posters",
       "description": "OpenRouter API key for the skill's LLM-powered steps.",
       "sizes": {
-        "SKILL.md": 15457,
-        "inlined": 248136,
-        "content": 247197
+        "SKILL.md": 16444,
+        "inlined": 249123,
+        "content": 248155
       },
       "files_inlined": [
         "references/README.md",
@@ -1516,15 +1568,15 @@
         "assets/tikzposter_template.tex"
       ],
       "files_excluded": [],
-      "sha256": "sha256:8c0f427f266fd5b717316d8efd02a5dabf493da80a7604a5150c28a1de7975c8"
+      "sha256": "sha256:b0095984be6c929c687e381b75d3113afd92b34086757358cc0ef3a02ae2c160"
     },
     "liteparse": {
       "id": "liteparse",
       "description": "Local document and PDF parsing that returns spatial text with bounding boxes. Use for extracting text from PDFs, DOCX, Office files, and images; running OCR on scans; producing layout-preserved JSON for RAG; batch-ingesting folders of papers; or rendering pages to PNG for multimodal agents. Distinguishing capabilities are per-token bounding boxes, page raster output, and fully local processing with no cloud API.",
       "sizes": {
-        "SKILL.md": 9302,
-        "inlined": 31763,
-        "content": 32057
+        "SKILL.md": 10260,
+        "inlined": 32721,
+        "content": 33015
       },
       "files_inlined": [
         "references/api_reference.md",
@@ -1535,15 +1587,15 @@
         "scripts/batch_parse_dir.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:1dc010351f399afefea12ccb4f5a93e8d8db3ed3ae9c56c9698f2cee6e6127fe"
+      "sha256": "sha256:1bda02c8ad4f3b25d6977739d534c69cd423f4448aa3ee15d9dd98a03321fa8e"
     },
     "literature-review": {
       "id": "literature-review",
       "description": "OpenRouter API key for the skill's LLM-powered steps.",
       "sizes": {
-        "SKILL.md": 12667,
-        "inlined": 132869,
-        "content": 132914
+        "SKILL.md": 13625,
+        "inlined": 133827,
+        "content": 133872
       },
       "files_inlined": [
         "references/citation_styles.md",
@@ -1559,7 +1611,7 @@
         "assets/review_template.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:6c7873f516129895e77f21b5ac49c4648485115f257c635955c615c056b9ed5b"
+      "sha256": "sha256:b6320f1dc0c94a893093555211dce4ae2841ad0c9c6eabcbf4bd9ab186a38318"
     },
     "markdown-mermaid-writing": {
       "id": "markdown-mermaid-writing",
@@ -1614,9 +1666,9 @@
       "id": "market-research-reports",
       "description": "Build evidence-traceable market research reports and assumption-driven market sizing or forecast scenarios. Use for market definition, industry and customer evidence, competitive landscapes, TAM/SAM/SOM reconciliation, forecast sensitivity, and auditable report scaffolds.",
       "sizes": {
-        "SKILL.md": 13105,
-        "inlined": 186073,
-        "content": 187425
+        "SKILL.md": 14063,
+        "inlined": 187031,
+        "content": 188383
       },
       "files_inlined": [
         "references/data_analysis_patterns.md",
@@ -1646,15 +1698,15 @@
         "assets/source_ledger_template.csv"
       ],
       "files_excluded": [],
-      "sha256": "sha256:8b384d39c9ad4d0da3559216b659a80f88343d0608a6af3e170814b90b029a66"
+      "sha256": "sha256:92a3ead0ca706905b1cc3044c6086c73b78446b018821acb94d23e256586fa8c"
     },
     "markitdown": {
       "id": "markitdown",
       "description": "Convert heterogeneous documents and selected URIs to Markdown with Microsoft MarkItDown for text analysis, search, and LLM/RAG ingestion. Covers safe local conversion, streams, Office/PDF/data formats, batch workflows, plugins, vision OCR, Azure extraction, and the official MCP server.",
       "sizes": {
-        "SKILL.md": 10724,
-        "inlined": 102986,
-        "content": 103498
+        "SKILL.md": 11682,
+        "inlined": 103944,
+        "content": 104456
       },
       "files_inlined": [
         "references/api_reference.md",
@@ -1669,15 +1721,15 @@
         "scripts/inspect_installation.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:67fe9b35e7d1008eb3b5052fccadda0bab8895d3b28a294e24fb3de98d8724a3"
+      "sha256": "sha256:7ff614bdf09dccd4d21cd0b462c09891bde0e843a296f972ec60232a2c9fdd4a"
     },
     "matchms": {
       "id": "matchms",
       "description": "Process, clean, compare, and search tandem mass spectra with matchms. Use for MS/MS file I/O, metadata harmonization, peak filtering, spectral similarity, library matching, score matrices, and molecular-similarity networks. Use pyopenms instead for LC-MS feature detection or proteomics pipelines.",
       "sizes": {
-        "SKILL.md": 10518,
-        "inlined": 89226,
-        "content": 89537
+        "SKILL.md": 11475,
+        "inlined": 90183,
+        "content": 90495
       },
       "files_inlined": [
         "references/filtering.md",
@@ -1689,15 +1741,15 @@
         "scripts/library_search.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:21bf3d0da83d14e5ebc124d0bddced02d1227a32db3f4cc5ee042976ecc26c59"
+      "sha256": "sha256:24c84c64ec23fe2e85929144aaac1ddfc51d02438177d4df28b4531926691593"
     },
     "matlab": {
       "id": "matlab",
       "description": "Build, review, migrate, and safely plan MATLAB or GNU Octave numerical workflows, including arrays, tabular/time data, tests, projects, graphics, MAT files, and explicit Python interoperability.",
       "sizes": {
-        "SKILL.md": 14308,
-        "inlined": 163578,
-        "content": 164533
+        "SKILL.md": 15266,
+        "inlined": 164536,
+        "content": 165491
       },
       "files_inlined": [
         "references/data-import-export.md",
@@ -1721,15 +1773,15 @@
         "assets/reproducibility_manifest_template.json"
       ],
       "files_excluded": [],
-      "sha256": "sha256:98c40cd6c09e77ae0d3bba8d071c3ffee9141287746ba266180530c4587f4a6b"
+      "sha256": "sha256:23d91aa0cccb8b46100417014b726089bc11c11e6efd3bcff5742486cb3614fb"
     },
     "matplotlib": {
       "id": "matplotlib",
       "description": "Low-level plotting library for full customization. Use when you need fine-grained control over every plot element, creating novel plot types, or integrating with specific scientific workflows. Export to PNG/PDF/SVG for publication. For quick statistical plots use seaborn; for interactive plots use plotly; for publication-ready multi-panel figures with journal styling, use scientific-visualization.",
       "sizes": {
-        "SKILL.md": 12242,
-        "inlined": 87534,
-        "content": 87901
+        "SKILL.md": 13199,
+        "inlined": 88491,
+        "content": 88859
       },
       "files_inlined": [
         "references/api_reference.md",
@@ -1740,15 +1792,15 @@
         "scripts/style_configurator.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:12a059b4e16fdce2926ccf6f251b0cf11b6006255eb4d815d3c225db83bb9e8d"
+      "sha256": "sha256:5b3d17b465df64b34defb1571905e2f5cd9346c36109e4dcf85524e623db8f41"
     },
     "medchem": {
       "id": "medchem",
       "description": "Medicinal chemistry filters for compound triage. Apply drug-likeness rules (Lipinski, Veber, CNS), structural alert catalogs (PAINS, NIBR, ChEMBL), complexity metrics, and the medchem query language for library filtering.",
       "sizes": {
-        "SKILL.md": 10723,
-        "inlined": 40696,
-        "content": 40815
+        "SKILL.md": 11681,
+        "inlined": 41654,
+        "content": 41773
       },
       "files_inlined": [
         "references/api_guide.md",
@@ -1756,15 +1808,15 @@
         "scripts/filter_molecules.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:10d3e6ee620a6951913cb7a7c15912456c25270e036610648b20d04a90d0dbee"
+      "sha256": "sha256:dd00312abf764879e402ca9ee3884b318a3f7a99cd37e412389bd56d0b43ca92"
     },
     "modal": {
       "id": "modal",
       "description": "Optional database URL for examples.",
       "sizes": {
-        "SKILL.md": 15366,
-        "inlined": 76817,
-        "content": 76656
+        "SKILL.md": 16324,
+        "inlined": 77775,
+        "content": 77614
       },
       "files_inlined": [
         "references/api_reference.md",
@@ -1781,7 +1833,7 @@
         "references/web-endpoints.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:546bc59eb7488f0070b5f870a61fb61d93e360c4ec58c7ab71105d62aa77fdcb"
+      "sha256": "sha256:31bdd7040618bcccbe750e626f61824bdaa5df1cf8db85f48fd7e662ab3c0928"
     },
     "molecular-dynamics": {
       "id": "molecular-dynamics",
@@ -1801,9 +1853,9 @@
       "id": "molfeat",
       "description": "Molecular featurization for ML (100+ featurizers). ECFP, MACCS, descriptors, pretrained models (ChemBERTa), convert SMILES to features, for QSAR and molecular ML.",
       "sizes": {
-        "SKILL.md": 12396,
-        "inlined": 57810,
-        "content": 58087
+        "SKILL.md": 13354,
+        "inlined": 58768,
+        "content": 59045
       },
       "files_inlined": [
         "references/api_reference.md",
@@ -1812,7 +1864,7 @@
         "references/examples.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:0d0f8020b64393a2d47d2f7b90685559959e6792717daa51e4664703dbb4b090"
+      "sha256": "sha256:48925bd693ca5d45970d287bb087a2dfc4121e70c3fdc23b7ac1bb0cf83f0166"
     },
     "ncats-arax": {
       "id": "ncats-arax",
@@ -1834,9 +1886,9 @@
       "id": "networkx",
       "description": "Create, analyze, and visualize complex networks and graphs in Python with NetworkX. Use when working with network/graph data structures, computing graph algorithms (shortest paths, centrality, clustering), detecting communities, generating synthetic networks (random, scale-free, small-world), reading/writing graph file formats, or drawing network topologies. Common applications include social, biological, transportation, and citation networks.",
       "sizes": {
-        "SKILL.md": 13477,
-        "inlined": 60653,
-        "content": 61132
+        "SKILL.md": 14434,
+        "inlined": 61610,
+        "content": 62090
       },
       "files_inlined": [
         "references/algorithms.md",
@@ -1846,15 +1898,15 @@
         "references/visualization.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:bd69c115c89d0430c2d8b56358923c03d9768a39ef132e4751fdeae06cd1d813"
+      "sha256": "sha256:89a6f728e366d2dcd637f7cbcd17f4055494a11162f5e2d9eaea7f61ca2ee64f"
     },
     "neurokit2": {
       "id": "neurokit2",
       "description": "Use NeuroKit2 to build or audit reproducible research workflows for physiological time-series preprocessing, event/interval analysis, multimodal alignment, variability, and complexity. Trigger when code imports neurokit2 or needs its current APIs, schemas, and method-aware validation—not for diagnosis or device validation.",
       "sizes": {
-        "SKILL.md": 13354,
-        "inlined": 180223,
-        "content": 180830
+        "SKILL.md": 14312,
+        "inlined": 181181,
+        "content": 181788
       },
       "files_inlined": [
         "references/bio_module.md",
@@ -1878,15 +1930,15 @@
         "scripts/validate_multimodal.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:1a8d7206069b0b67eb509ca1c472dd04bb793539bbfb434235703f8228c13742"
+      "sha256": "sha256:b3a4855e8186e0d3a5f65a4856fde54aa416eb768ed8d3f40705eb7eea8ad8c3"
     },
     "neuropixels-analysis": {
       "id": "neuropixels-analysis",
       "description": "For optional Claude API calls.",
       "sizes": {
-        "SKILL.md": 15901,
-        "inlined": 149094,
-        "content": 149429
+        "SKILL.md": 16859,
+        "inlined": 150052,
+        "content": 150387
       },
       "files_inlined": [
         "references/AI_CURATION.md",
@@ -1908,15 +1960,15 @@
         "assets/analysis_template.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:f147581e0a2446d9bce0030e4a52bcd2d237fc80d8e7be094589f5bcbb390933"
+      "sha256": "sha256:5ae2d37cf91cee06d3cbf13337202566a71a1beb805b13dac9b1a43bd5057e9e"
     },
     "nextflow": {
       "id": "nextflow",
       "description": "Build, run, and debug Nextflow data pipelines and nf-core workflows end to end. Use whenever the user mentions Nextflow, nf-core, .nf files, nextflow.config, DSL2, processes/channels/operators, samplesheets, or wants to run a community pipeline (e.g. nf-core/rnaseq, nf-core/sarek), write or test a module/subworkflow with nf-test, configure executors/containers (Docker, Singularity/Apptainer, Conda, Wave), scale a workflow to HPC/SLURM or cloud (AWS Batch, Google Batch, Azure, Kubernetes), or debug a failed/-resume run. Make sure to use this skill for any reproducible scientific/bioinformatics workflow work even if the user does not say the word \"Nextflow\", and for authoring nf-core-compliant pipelines, modules, configs, and linting.",
       "sizes": {
-        "SKILL.md": 12180,
-        "inlined": 78703,
-        "content": 78948
+        "SKILL.md": 13138,
+        "inlined": 79691,
+        "content": 79936
       },
       "files_inlined": [
         "references/configuration.md",
@@ -1928,15 +1980,15 @@
         "references/testing.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:3431db6e7d9fa0bbc4e63774cf01689308f733fd230709e733c6d9afd2fe3628"
+      "sha256": "sha256:41463509b2eb53b4261e1045d00f44a311642dde81a6437362eccad52f5503c1"
     },
     "omero-integration": {
       "id": "omero-integration",
       "description": "Secure transport toggle; default true.",
       "sizes": {
-        "SKILL.md": 9265,
-        "inlined": 144235,
-        "content": 143748
+        "SKILL.md": 10223,
+        "inlined": 145193,
+        "content": 144706
       },
       "files_inlined": [
         "references/advanced.md",
@@ -1955,7 +2007,7 @@
         "scripts/validate_config.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:187742c9c4c2f5f452bdbdd4533e3fc819890d53bbc9bec63f98b898bf1e0845"
+      "sha256": "sha256:8828415c3909556bb35cd4d09f077369978ef7c1ad0c514ce786b06d291ee90e"
     },
     "onekgpd": {
       "id": "onekgpd",
@@ -1978,30 +2030,35 @@
     },
     "ontology-term-resolution": {
       "id": "ontology-term-resolution",
-      "description": "Resolve free-text scientific labels to ontology term IDs and validate existing CURIEs against the EBI Ontology Lookup Service (OLS4). Use whenever an ontology identifier must be produced or checked - annotating tissue, cell type, disease, phenotype, assay, chemical, organism, sex, or developmental stage fields; preparing metadata for GEO, ENA, BioSamples, CELLxGENE, HCA, or ISA-Tab submission; auditing a metadata table of term IDs; checking whether a term is obsolete and what replaced it; or mapping between ontologies. Triggers include \"ontology term\", \"ontology ID\", \"CURIE\", \"controlled vocabulary\", \"UBERON\", \"CL:\", \"MONDO\", \"HPO\", \"EFO\", \"ChEBI\", \"NCBITaxon\", \"GO term\", \"PATO\", \"annotate this tissue/cell type/disease\", and any request to emit or verify an identifier shaped like PREFIX:0001234.",
+      "description": "Resolve free-text scientific labels to ontology term IDs and validate existing CURIEs against the EBI Ontology Lookup Service (OLS4). Also look up prefixes in Bioregistry, resolve compact identifiers via Identifiers.org, map lab shorthand with ZOOMA, and build Ontobee term pages. Use whenever an ontology identifier must be produced or checked - annotating tissue, cell type, disease, phenotype, assay, chemical, organism, sex, or developmental stage fields; preparing metadata for GEO, ENA, BioSamples, CELLxGENE, HCA, or ISA-Tab submission; auditing a metadata table of term IDs; checking whether a term is obsolete and what replaced it; or deciding HPO vs HP. Triggers include \"ontology term\", \"ontology ID\", \"CURIE\", \"controlled vocabulary\", \"UBERON\", \"CL:\", \"MONDO\", \"HPO\", \"EFO\", \"ChEBI\", \"NCBITaxon\", \"GO term\", \"PATO\", \"Zooma\", \"Bioregistry\", \"Identifiers.org\", \"Ontobee\", \"annotate this tissue/cell type/disease\", and any request to emit or verify an identifier shaped like PREFIX:0001234.",
       "sizes": {
-        "SKILL.md": 7637,
-        "inlined": 55382,
-        "content": 55700
+        "SKILL.md": 11779,
+        "inlined": 97260,
+        "content": 97600
       },
       "files_inlined": [
+        "references/companion-apis.md",
         "references/curation-rules.md",
         "references/ols4-api.md",
         "references/ontology-registry.md",
+        "scripts/id_client.py",
+        "scripts/lookup_prefix.py",
+        "scripts/map_terms.py",
         "scripts/ols_client.py",
         "scripts/resolve_terms.py",
-        "scripts/validate_terms.py"
+        "scripts/validate_terms.py",
+        "scripts/zooma_client.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:2d9418dd12e33b3d0b58f6251b1360835be9d9ae5b43c11745fc816d6e3668a5"
+      "sha256": "sha256:e731fca98cc7a9503202a85d6234bf5be0f0da7fc2148aa0f4c0d63c7afd462d"
     },
     "open-notebook": {
       "id": "open-notebook",
       "description": "Encryption key for stored content, if configured.",
       "sizes": {
-        "SKILL.md": 10013,
-        "inlined": 56818,
-        "content": 55497
+        "SKILL.md": 10972,
+        "inlined": 57777,
+        "content": 56455
       },
       "files_inlined": [
         "references/api_reference.md",
@@ -2013,7 +2070,7 @@
         "scripts/source_ingestion.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:d6faa7b5ae22e03924a8ea66057a94d6cc29890fb9d66bc77c47b898eb851c46"
+      "sha256": "sha256:d055676af4d3e76bb13652d62a5eaab5ada6948b3c0c1f8eafec9ecabb87ac09"
     },
     "openpiv": {
       "id": "openpiv",
@@ -2037,9 +2094,9 @@
       "id": "opentrons-integration",
       "description": "Author, review, migrate, simulate, and troubleshoot official Opentrons Python Protocol API v2 protocols for Flex and OT-2 robots. Use for robot-specific liquid handling, deck and labware setup, pipettes, modules, runtime parameters, liquid classes, and Opentrons App analysis. Use pylabrobot instead when one workflow must support multiple robot vendors.",
       "sizes": {
-        "SKILL.md": 12911,
-        "inlined": 100880,
-        "content": 101394
+        "SKILL.md": 13869,
+        "inlined": 101838,
+        "content": 102352
       },
       "files_inlined": [
         "references/api_reference.md",
@@ -2059,15 +2116,15 @@
         "requirements-ot2.txt"
       ],
       "files_excluded": [],
-      "sha256": "sha256:e5d42c03af74f655f393f86e7597288327488cf269ccccd3a547f1ba4224ad81"
+      "sha256": "sha256:b651fae95f0d55ca015f2a00d2da429c8f3a0e34ebd811379d3da9e27608fb58"
     },
     "optimize-for-gpu": {
       "id": "optimize-for-gpu",
       "description": "GPU-accelerates scientific Python on NVIDIA hardware and verifies that the result is correct and faster. Use for CUDA/GPU optimization; CPU-bound NumPy, SciPy, pandas, scikit-learn, NetworkX, scikit-image, vector-search, image-processing, graph, simulation, or file-I/O workloads; CuPy, cuDF, cuML, cuGraph, cuVS, cuCIM, KvikIO, Warp, Newton, Numba-CUDA, or RAFT questions; and profiling, memory-transfer, kernel, or multi-GPU bottlenecks. Also use when large data-parallel Python code is slow and GPU acceleration is a plausible option, even if the user does not name CUDA.",
       "sizes": {
-        "SKILL.md": 11823,
-        "inlined": 284428,
-        "content": 284398
+        "SKILL.md": 12781,
+        "inlined": 285386,
+        "content": 285356
       },
       "files_inlined": [
         "references/code_transformation_patterns.md",
@@ -2087,7 +2144,7 @@
         "references/warp.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:26c571dc7c3336c5ce5eee4b73f39bddfc4d4c2d039da182cea43bca53b7731f"
+      "sha256": "sha256:0ed3bc4f7cbe54c1abd77d444bbcc6bbd3817b210695bc19d841802766c95b6f"
     },
     "pacsomatic": {
       "id": "pacsomatic",
@@ -2110,24 +2167,31 @@
     },
     "paper-lookup": {
       "id": "paper-lookup",
-      "description": "Search 11 academic literature APIs for papers, preprints, citations, and open-access full text, and return results with reproducible provenance. Covers PubMed, PMC (full text), Europe PMC (full-text and preprint search), bioRxiv, medRxiv, arXiv, OpenAlex, Crossref, Semantic Scholar, CORE, Unpaywall. Use when searching for papers, citations, DOI/PMID/arXiv lookups, abstracts, full text, open-access PDFs, preprints, citation graphs, author publications, or any scholarly literature query. Triggers on mentions of any supported database or requests like \"find papers on X\", \"look up this DOI\", \"who cites this paper\", or \"get me the PDF\".",
+      "description": "Search 18 scholarly APIs for papers, preprints, citations, open-access full text, repository records, and journal OA status, and return results with reproducible provenance. Covers PubMed, PMC, Europe PMC, bioRxiv, medRxiv, arXiv, OpenAlex, Crossref, Semantic Scholar, CORE, Unpaywall, OpenCitations, PubTator3, Zenodo, Figshare, ROR, BioStudies, and DOAJ. Use when searching for papers, citations, DOI/PMID/arXiv lookups, abstracts, full text, open-access PDFs, preprints, citation graphs, author publications, biomedical entity annotations, deposited records (Zenodo, Figshare, BioStudies), institution ROR IDs, or any scholarly literature query. Triggers on mentions of any supported database or requests like \"find papers on X\", \"look up this DOI\", \"who cites this paper\", or \"get me the PDF\".",
       "sizes": {
-        "SKILL.md": 21205,
-        "inlined": 140497,
-        "content": 141046
+        "SKILL.md": 24693,
+        "inlined": 170355,
+        "content": 171023
       },
       "files_inlined": [
         "references/arxiv.md",
         "references/biorxiv.md",
+        "references/biostudies.md",
         "references/core.md",
         "references/crossref.md",
+        "references/doaj.md",
         "references/europepmc.md",
+        "references/figshare.md",
         "references/medrxiv.md",
         "references/openalex.md",
+        "references/opencitations.md",
         "references/pmc.md",
         "references/pubmed.md",
+        "references/pubtator.md",
+        "references/ror.md",
         "references/semantic-scholar.md",
         "references/unpaywall.md",
+        "references/zenodo.md",
         "scripts/_common.py",
         "scripts/arxiv_atom.py",
         "scripts/jats_to_text.py",
@@ -2135,15 +2199,15 @@
         "scripts/paginate.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:56e282ba218a6f3fb9535dbaf74f7282d9d0ee0f88adc4240a09b938a7c4f886"
+      "sha256": "sha256:7c0f4fa3b1da7a411d35d3cc9cf4b9314ed339a899e5636844d2ad1469a64b60"
     },
     "paperclip": {
       "id": "paperclip",
       "description": "Paperclip API key from https://paperclip.gxl.ai/keys. Preferred over browser OAuth. Not required — the skill also covers installing the CLI and signing in interactively.",
       "sizes": {
-        "SKILL.md": 21559,
-        "inlined": 93364,
-        "content": 92086
+        "SKILL.md": 22517,
+        "inlined": 94322,
+        "content": 93044
       },
       "files_inlined": [
         "references/cli-reference.md",
@@ -2154,7 +2218,7 @@
         "references/search-and-retrieval.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:e3fad5ef363a103a866da5b9ae871f6aaf5343e66e1f5f07cbbe3331369353d5"
+      "sha256": "sha256:0b9c364f4f0841e41e2d4ec8b9b213923e25b63a3a6419a4d5be1ff3ccefa467"
     },
     "paperzilla": {
       "id": "paperzilla",
@@ -2172,9 +2236,9 @@
       "id": "parallel-web",
       "description": "Parallel API key.",
       "sizes": {
-        "SKILL.md": 6187,
-        "inlined": 23246,
-        "content": 23301
+        "SKILL.md": 7150,
+        "inlined": 24209,
+        "content": 24259
       },
       "files_inlined": [
         "references/data-enrichment.md",
@@ -2185,15 +2249,15 @@
         "references/web-search.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:45691e934b22b91a19d3c9a9a5f6a1c239df887a89ddee1196e2e2649a8da98f"
+      "sha256": "sha256:7e5d72383c7d666a3749a84e85e57cc62abb84119c4bef3ff4bb5760ca3968f7"
     },
     "pathml": {
       "id": "pathml",
       "description": "Use PathML for local, research-only computational pathology workflows: load and tile slides, build preprocessing and QC pipelines, manage h5path data, quantify multiplex images, construct spatial graphs, and plan bounded model inference.",
       "sizes": {
-        "SKILL.md": 10190,
-        "inlined": 150823,
-        "content": 151256
+        "SKILL.md": 11148,
+        "inlined": 151781,
+        "content": 152214
       },
       "files_inlined": [
         "references/data_management.md",
@@ -2210,15 +2274,15 @@
         "scripts/validate_spatial_schema.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:38f9ef2655aa809bb1a6e50ddd2c211d0bf90dad4b442f4151d12ea6d3f62c3a"
+      "sha256": "sha256:8ed9f59c34d47d1db6bb60030b4baac2defd93e9707ff612d043d5907a427bcf"
     },
     "pathogen-variant-surveillance": {
       "id": "pathogen-variant-surveillance",
       "description": "Query live pathogen genomic surveillance data through the GenSpectrum LAPIS API to find which viral lineages are circulating now, how fast they are growing, and what mutations they carry. Use whenever a question depends on the current state of a pathogen population rather than on remembered facts - which SARS-CoV-2 variant is dominant, whether a Pango lineage is still designated or has been withdrawn, what clade or genotype of H5N1 is in a host or region, whether a PCR primer or assay target still matches circulating sequence, or how a lineage's prevalence has moved week to week. Triggers include \"variant surveillance\", \"genomic surveillance\", \"what variant is circulating\", \"dominant variant\", \"Pango lineage\", \"lineage prevalence\", \"growth advantage\", \"SARS-CoV-2 variant\", \"XFG\", \"clade 2.3.4.4b\", \"H5N1 genotype\", \"influenza clade\", \"RSV/mpox/measles/dengue lineage\", \"CoV-Spectrum\", \"LAPIS\", \"Nextclade\", \"pango-designation\", and any request to report what a pathogen population looks like today.",
       "sizes": {
-        "SKILL.md": 11336,
-        "inlined": 104694,
-        "content": 104965
+        "SKILL.md": 12294,
+        "inlined": 105652,
+        "content": 105923
       },
       "files_inlined": [
         "references/lapis-api.md",
@@ -2231,15 +2295,15 @@
         "scripts/resolve_lineage.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:35b746d639b4d486a156a4ad213931ced329d032830cdcd723a2778be43a4bfa"
+      "sha256": "sha256:c997f15755871ee66e6fa1d07ec3239935b3762be07d50bf4db62ec52375ff02"
     },
     "pathway-enrichment": {
       "id": "pathway-enrichment",
       "description": "Run pathway and gene-set enrichment analysis on gene lists or ranked gene data, then interpret the results. Use whenever the user has a set of genes (differentially expressed genes from PyDESeq2/Scanpy, CRISPR-screen hits, cluster marker genes, proteomics hits) and wants to know which biological pathways, GO terms, or gene sets are over-represented or enriched. Covers over-representation analysis (ORA / Enrichr / Fisher / hypergeometric), ranked Gene Set Enrichment Analysis (GSEA / preranked), single-sample scoring (ssGSEA/GSVA), and functional profiling via gseapy, g:Profiler, Enrichr libraries, MSigDB, GO, KEGG, Reactome, and WikiPathways — plus gene-ID mapping, choosing the right background universe, multiple-testing correction, redundancy reduction, dotplots/enrichment maps, and publication-ready tables. Use this for \"pathway analysis\", \"enrichment analysis\", \"GO enrichment\", \"KEGG/Reactome pathways\", \"GSEA\", \"over-representation\", \"functional annotation\", or \"what pathways are my genes in\".",
       "sizes": {
-        "SKILL.md": 12557,
-        "inlined": 41305,
-        "content": 41659
+        "SKILL.md": 13515,
+        "inlined": 42263,
+        "content": 42617
       },
       "files_inlined": [
         "references/databases-and-gene-sets.md",
@@ -2248,7 +2312,7 @@
         "scripts/run_enrichment.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:f57a4fd2c4d269f32ee59a7c82088aa9e17d78562eaa2e3c240d9493bf78adb0"
+      "sha256": "sha256:370554dd72739ecc4e38fa9a9986a2d5afa637e904591f42fbd6e65175492efa"
     },
     "pdf": {
       "id": "pdf",
@@ -2278,9 +2342,9 @@
       "id": "peer-review",
       "description": "Prepare evidence-bounded, constructive peer-review drafts and structured manuscript assessments. Use for authorized review of scientific manuscripts, protocols, preprints, or research proposals; reporting-guideline selection; claim–evidence checks; methods, statistics, reproducibility, ethics, figure/table, and citation critique; or revision-response planning.",
       "sizes": {
-        "SKILL.md": 11593,
-        "inlined": 188446,
-        "content": 189564
+        "SKILL.md": 12551,
+        "inlined": 189404,
+        "content": 190522
       },
       "files_inlined": [
         "references/common_issues.md",
@@ -2308,15 +2372,15 @@
         "assets/study_profile_template.json"
       ],
       "files_excluded": [],
-      "sha256": "sha256:9457c7cbd3c294e401d5c1300a228bb99ce9a81c1f0599b7acd6e2c90cc516ed"
+      "sha256": "sha256:c24d924ca933db2b386c3555f28612b4061a71e5b1c5eca4cce732c4655eafd6"
     },
     "pennylane": {
       "id": "pennylane",
       "description": "Hardware-agnostic quantum ML framework with automatic differentiation. Use when training quantum circuits via gradients, building hybrid quantum-classical models, or needing device portability across IBM/Google/Rigetti/IonQ. Best for variational algorithms (VQE, QAOA), quantum neural networks, and integration with PyTorch or JAX. For hardware-specific optimizations use qiskit (IBM) or cirq (Google); for open quantum systems use qutip.",
       "sizes": {
-        "SKILL.md": 8338,
-        "inlined": 97247,
-        "content": 97800
+        "SKILL.md": 9295,
+        "inlined": 98204,
+        "content": 98758
       },
       "files_inlined": [
         "references/advanced_features.md",
@@ -2328,7 +2392,7 @@
         "references/quantum_ml.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:4745cd32d8f0b5fc5069ee0880bcfbd42c3aaf8cbb8a071cf9781f69ad28759c"
+      "sha256": "sha256:0063848cc6e572fa0de7d4af65051e19e1dcf601424756c0895462b6767e7c23"
     },
     "phylogenetics": {
       "id": "phylogenetics",
@@ -2349,9 +2413,9 @@
       "id": "pi-agent",
       "description": "Build with and use Pi, the minimal terminal coding harness. Use for installing Pi, configuring providers/models/settings/environment variables, creating Pi skills/extensions/packages/themes/prompt templates, embedding Pi through the SDK, integrating over RPC or JSON event streams, parsing sessions, running local models through the llama.cpp router, developing custom Pi providers and TUI components, or using ecosystem packages such as pi-subagents (delegation/orchestration), pi-mcp-adapter (MCP servers), pi-interview (interactive forms), and pi-web-access (web search, fetching, video understanding).",
       "sizes": {
-        "SKILL.md": 6259,
-        "inlined": 260453,
-        "content": 260967
+        "SKILL.md": 7217,
+        "inlined": 261411,
+        "content": 261925
       },
       "files_inlined": [
         "references/compaction.md",
@@ -2390,15 +2454,15 @@
         "references/windows.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:e0ccce777cbb1cf96f995c9a611046040d389a2c56bcdd045e15ef1edb128170"
+      "sha256": "sha256:365c7d29d00957a910ed93df5736e9cd30bf855640749dcda6cf5a52c97c35eb"
     },
     "pkpd-modeling": {
       "id": "pkpd-modeling",
       "description": "Pharmacokinetic and pharmacodynamic modelling and simulation - non-compartmental analysis, compartmental and population PK, PK/PD and exposure-response, TMDD, PBPK orientation, bioequivalence, allometric scaling and first-in-human dose, drug interaction prediction, and Bayesian therapeutic drug monitoring. Use when analysing concentration-time data, deriving exposure metrics, fitting PK or PD models, or evaluating dosing regimens. Triggers include \"pharmacokinetics\", \"pharmacodynamics\", \"PK/PD\", \"NCA\", \"non-compartmental\", \"AUC\", \"Cmax\", \"lambda z\", \"half-life\", \"clearance\", \"volume of distribution\", \"compartmental model\", \"population PK\", \"popPK\", \"NONMEM\", \"nlmixr2\", \"Pharmpy\", \"Monolix\", \"exposure-response\", \"Emax\", \"EC50\", \"indirect response\", \"effect compartment\", \"TMDD\", \"PBPK\", \"bioequivalence\", \"RSABE\", \"ABEL\", \"allometric scaling\", \"first-in-human\", \"MABEL\", \"drug-drug interaction\", \"DDI\", \"ICH M12\", \"concentration-QTc\", \"therapeutic drug monitoring\", \"MIPD\", and \"dosing regimen\".",
       "sizes": {
-        "SKILL.md": 20969,
-        "inlined": 316809,
-        "content": 317479
+        "SKILL.md": 21927,
+        "inlined": 317767,
+        "content": 318437
       },
       "files_inlined": [
         "references/antimicrobial-and-tdm.md",
@@ -2430,15 +2494,15 @@
         "assets/popk-analysis-plan.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:bb5ffd987e38a1afb496e186956774947cfd37329e5d08440d7f2ead2ab5d7e5"
+      "sha256": "sha256:a5135aeabb2d79946e2ab8d1a60de586eb9d33a3117079ddb5d927f8bf2538c7"
     },
     "polars": {
       "id": "polars",
       "description": "High-performance DataFrame library for Python ETL, analytics, and pandas migration. Use for expression-based data manipulation with lazy query optimization, parallel execution, streaming out-of-core processing, Arrow interoperability, and optional GPU execution.",
       "sizes": {
-        "SKILL.md": 9796,
-        "inlined": 79731,
-        "content": 80067
+        "SKILL.md": 10753,
+        "inlined": 80688,
+        "content": 81025
       },
       "files_inlined": [
         "references/best_practices.md",
@@ -2449,15 +2513,15 @@
         "references/transformations.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:6f5cfef08e8b25bff59d9d9bc43028ea47b882024639adad752f2aa530cdbe4d"
+      "sha256": "sha256:321d1dd061abfb6feb0eba2be71a765d0016bd4899af0b3ad10fc9e6e90e3e3f"
     },
     "polars-bio": {
       "id": "polars-bio",
       "description": "High-performance genomic interval operations and bioinformatics file I/O on Polars DataFrames. Overlap, nearest, merge, coverage, complement, subtract for BED/VCF/BAM/GFF intervals. Streaming, cloud-native, faster bioframe alternative.",
       "sizes": {
-        "SKILL.md": 15147,
-        "inlined": 66818,
-        "content": 67145
+        "SKILL.md": 16105,
+        "inlined": 67776,
+        "content": 68103
       },
       "files_inlined": [
         "references/bioframe_migration.md",
@@ -2468,7 +2532,7 @@
         "references/sql_processing.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:f7f7ae610c15d58e8a49b38b53827c85ec1272f761063afd9a2cebc143bbec9a"
+      "sha256": "sha256:90c884451f86fe92b2d05a454d6ebef0df05cd986047db428db7ed01cfdaf50d"
     },
     "pptx": {
       "id": "pptx",
@@ -2543,9 +2607,9 @@
       "id": "pptx-posters",
       "description": "Create and audit editable scientific posters in macro-free PowerPoint (.pptx) from author-approved local content and assets. Use when the requested deliverable is a PowerPoint research/conference poster and exact physical, printer, accessibility, provenance, and package-security checks are required.",
       "sizes": {
-        "SKILL.md": 9913,
-        "inlined": 245082,
-        "content": 245985
+        "SKILL.md": 10871,
+        "inlined": 246040,
+        "content": 246943
       },
       "files_inlined": [
         "references/manifest_spec.md",
@@ -2570,29 +2634,29 @@
         "assets/poster_quality_checklist.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:048080ae17e2f5a875ffbc04f5211cab8e77a1ebf9327f2ec544de1ee87d6e54"
+      "sha256": "sha256:9bd5024dd23f65d419ddb318894519ed56a2be85d9b6f0f27b2160f57341545d"
     },
     "primekg": {
       "id": "primekg",
       "description": "Query the Precision Medicine Knowledge Graph (PrimeKG) for multiscale biological data including genes, drugs, diseases, phenotypes, and more.",
       "sizes": {
-        "SKILL.md": 3996,
-        "inlined": 9009,
-        "content": 9375
+        "SKILL.md": 4954,
+        "inlined": 9967,
+        "content": 10333
       },
       "files_inlined": [
         "scripts/query_primekg.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:ce1b39d55db0930eacfe44b61a6dc957843d122d2185f079bd16e642a18afe8d"
+      "sha256": "sha256:0594f2e955607266ddbb3b2517cdef64da885c4fa7322515e0b149bc88343b0b"
     },
     "protocolsio-integration": {
       "id": "protocolsio-integration",
       "description": "Bearer token for authenticated protocols.io REST reads.",
       "sizes": {
-        "SKILL.md": 10850,
-        "inlined": 143804,
-        "content": 143708
+        "SKILL.md": 11808,
+        "inlined": 144762,
+        "content": 144666
       },
       "files_inlined": [
         "references/additional_features.md",
@@ -2611,15 +2675,15 @@
         "assets/protocol-snapshot.schema.json"
       ],
       "files_excluded": [],
-      "sha256": "sha256:f5f57c5d0ed02832300c0997706e729881efb4fd6df9dae39ad43085e2ed35d3"
+      "sha256": "sha256:3842d098e3f0a8b142350b6164762586139b4e427b2144e0bb835bc5bb27adb3"
     },
     "pufferlib": {
       "id": "pufferlib",
       "description": "Version-aware guidance for PufferLib reinforcement-learning environments, vectorization, policies, PuffeRL training, evaluation, and safe checkpoint review. Use when adapting Gymnasium/PettingZoo environments to published PufferLib 3.0.0 or working with the redesigned native 4.0 source line.",
       "sizes": {
-        "SKILL.md": 11737,
-        "inlined": 126284,
-        "content": 126650
+        "SKILL.md": 12695,
+        "inlined": 127242,
+        "content": 127608
       },
       "files_inlined": [
         "references/environments.md",
@@ -2638,15 +2702,15 @@
         "scripts/validate_plan.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:1ebbb3e17f02dbb175dffc544cd5ef7f1eab06421b3ecb445f9061d2050f2cbb"
+      "sha256": "sha256:f0b3474c722cfda5020880b5040e4c4db3ebfe2e70794a69fc253600a2209ad9"
     },
     "pydeseq2": {
       "id": "pydeseq2",
       "description": "Differential gene expression analysis for bulk RNA-seq with PyDESeq2, including formulaic designs, Wald tests, FDR correction, LFC shrinkage, and result visualization.",
       "sizes": {
-        "SKILL.md": 11800,
-        "inlined": 55198,
-        "content": 55488
+        "SKILL.md": 12758,
+        "inlined": 56156,
+        "content": 56446
       },
       "files_inlined": [
         "references/analysis_patterns.md",
@@ -2656,15 +2720,15 @@
         "scripts/run_deseq2_analysis.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:72160fd3cb5b9143bd70b260009a7961e1a1cdc3e0a7ce68a5ae99d62a103d58"
+      "sha256": "sha256:54920358a1c2d8275dd6e0993695588104c4888000325db6533a73e7be8e7b74"
     },
     "pydicom": {
       "id": "pydicom",
       "description": "Use pydicom to read, inspect, write, transform, and safely preflight local DICOM datasets and pixel data. Applies to DICOM metadata, transfer syntaxes, compression plugins, frames, private elements, JSON, and bounded de-identification review.",
       "sizes": {
-        "SKILL.md": 15869,
-        "inlined": 176335,
-        "content": 177081
+        "SKILL.md": 16827,
+        "inlined": 177293,
+        "content": 178039
       },
       "files_inlined": [
         "references/common_tags.md",
@@ -2681,15 +2745,15 @@
         "scripts/uid_mapping_validator.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:327df43b999fa16239d1596f3c1d4c0e2781a3fd352c0329834b16482b957902"
+      "sha256": "sha256:b26c7088121a0d509ce87f5a7bc55cb325152aa1a2ab63699c2aa043f0b5e867"
     },
     "pyhealth": {
       "id": "pyhealth",
       "description": "Build clinical/healthcare deep-learning pipelines with PyHealth — loading EHR/signal/imaging datasets (MIMIC-III/IV, eICU, OMOP, SleepEDF, ChestXray14, EHRShot), defining tasks (mortality, readmission, length-of-stay, drug recommendation, sleep staging, ICD coding, EEG events), instantiating models (Transformer, RETAIN, GAMENet, SafeDrug, MICRON, StageNet, AdaCare, CNN/RNN/MLP), training with the PyHealth Trainer, computing clinical metrics, and using medical code utilities (ICD/ATC/NDC/RxNorm lookup and cross-mapping). Use this skill whenever the user mentions PyHealth, MIMIC, eICU, OMOP, EHR modeling, clinical prediction, drug recommendation, sleep staging, medical code mapping, ICD/ATC codes, or any healthcare ML pipeline that fits the dataset → task → model → trainer → metrics pattern, even if \"PyHealth\" isn't named explicitly.",
       "sizes": {
-        "SKILL.md": 7329,
-        "inlined": 39928,
-        "content": 40307
+        "SKILL.md": 8287,
+        "inlined": 40886,
+        "content": 41265
       },
       "files_inlined": [
         "references/datasets.md",
@@ -2701,15 +2765,15 @@
         "assets/starter_pipeline.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:b58b36af427e9587af5d85c113c94d83d1fb24b0aebb226aa1bb851da0cc9edf"
+      "sha256": "sha256:c48929fbc1ea1bc8023f0357cae53fc88f750518f475c051adcea1693af0c76c"
     },
     "pylabrobot": {
       "id": "pylabrobot",
       "description": "Develop and review PyLabRobot lab-automation resources, liquid-handling plans, offline simulations, and supported-device integrations. Use for PyLabRobot protocols or API questions; keep physical execution behind an explicit operator safety gate.",
       "sizes": {
-        "SKILL.md": 9737,
-        "inlined": 108408,
-        "content": 108957
+        "SKILL.md": 10695,
+        "inlined": 109366,
+        "content": 109915
       },
       "files_inlined": [
         "references/analytical-equipment.md",
@@ -2728,15 +2792,15 @@
         "assets/protocol-manifest.schema.json"
       ],
       "files_excluded": [],
-      "sha256": "sha256:6633b4c1c012f15dc067164cc49ed47972b00e2b4cf9ba6e90d532bb158e628d"
+      "sha256": "sha256:3f89ad9c3e16ea50c8cb38a31196d0b705caf6865a9af864b32ee264f13cef7a"
     },
     "pymatgen": {
       "id": "pymatgen",
       "description": "Analyze, validate, convert, and transform materials structures and computed materials data with current pymatgen APIs, including local phase diagrams, symmetry sensitivity, electronic-structure I/O, and explicitly bounded Materials Project queries.",
       "sizes": {
-        "SKILL.md": 15309,
-        "inlined": 162849,
-        "content": 163391
+        "SKILL.md": 16267,
+        "inlined": 163807,
+        "content": 164349
       },
       "files_inlined": [
         "references/analysis_modules.md",
@@ -2755,15 +2819,15 @@
         "scripts/symmetry_sensitivity_report.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:4e8f6dc713408928c9fbbbd843cd55140e02a9c8ffbcf9bf3059d0004e3ccbc2"
+      "sha256": "sha256:06a3904ba271789c81a16e827c1e560808446dcd4d4ece3765693f98140f7121"
     },
     "pymc": {
       "id": "pymc",
       "description": "Bayesian modeling with PyMC. Build hierarchical models, MCMC (NUTS), variational inference, LOO/WAIC comparison, posterior checks, for probabilistic programming and inference.",
       "sizes": {
-        "SKILL.md": 10679,
-        "inlined": 101532,
-        "content": 101726
+        "SKILL.md": 11637,
+        "inlined": 102490,
+        "content": 102684
       },
       "files_inlined": [
         "references/distributions.md",
@@ -2777,15 +2841,15 @@
         "assets/linear_regression_template.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:3887c51f589d63de45088187309869eca5577d79e9edb9bc3b148fbd94586a30"
+      "sha256": "sha256:a4d38574aec0c490ad47dd4220561e3afbe6d49284e69acaf38719e9bbeda03c"
     },
     "pymoo": {
       "id": "pymoo",
       "description": "Multi-objective optimization framework. NSGA-II, NSGA-III, MOEA/D, Pareto fronts, constraint handling, benchmarks (ZDT, DTLZ), for engineering design and optimization problems.",
       "sizes": {
-        "SKILL.md": 10508,
-        "inlined": 83232,
-        "content": 83811
+        "SKILL.md": 11466,
+        "inlined": 84190,
+        "content": 84769
       },
       "files_inlined": [
         "references/algorithms.md",
@@ -2802,15 +2866,15 @@
         "scripts/single_objective_example.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:a9c70ae3ffb5aa4a1ff8d5168fec5a92d2a0e3c7810fd4053295ae89711cc265"
+      "sha256": "sha256:d6fc0f9b02a983404bea01bcc6bfe18daafa25dc345ba1aac6eb474c4f8d1ae4"
     },
     "pyopenms": {
       "id": "pyopenms",
       "description": "Complete mass spectrometry analysis platform. Use for proteomics and metabolomics workflows—feature detection, peptide/protein identification, label-free and isobaric quantification, adduct/accurate-mass annotation, and complex LC-MS/MS pipelines. Supports extensive file formats and algorithms. For simple spectral comparison and small-molecule library matching use matchms.",
       "sizes": {
-        "SKILL.md": 8031,
-        "inlined": 146217,
-        "content": 147430
+        "SKILL.md": 8989,
+        "inlined": 147175,
+        "content": 148388
       },
       "files_inlined": [
         "references/data_structures.md",
@@ -2837,15 +2901,15 @@
         "scripts/theoretical_spectrum.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:f15ce729da7b2f5b7900074e6fe46bf148513f37f29ed01df30a1a74a96617a7"
+      "sha256": "sha256:729ff9a17fb20632480d5412eda25d03698cf35f8838c3a6b4c2e8b913108905"
     },
     "pysam": {
       "id": "pysam",
       "description": "Python/HTSlib workflows for genomic files. Use when reading, querying, filtering, or writing SAM/BAM/CRAM, VCF/BCF, FASTA/FASTQ, or tabix data with pysam, including pileup, coverage, indexing, and CRAM references.",
       "sizes": {
-        "SKILL.md": 11585,
-        "inlined": 137720,
-        "content": 138365
+        "SKILL.md": 12543,
+        "inlined": 138678,
+        "content": 139323
       },
       "files_inlined": [
         "references/alignment_files.md",
@@ -2863,15 +2927,15 @@
         "scripts/variant_summary.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:914e8bdeccf5bd8fe37a53a7d1257fa200dc02f289e289cb24614aa5da7835b6"
+      "sha256": "sha256:ac3a8dd4c5030ebb09e00c207d8d866e48a9eaf17be9d019c8afdd683f465831"
     },
     "pytdc": {
       "id": "pytdc",
       "description": "Use Therapeutics Data Commons through the PyTDC Python package for registry discovery, approved dataset access, task-aware splits, evaluator metrics, benchmark groups, and bounded molecular-oracle workflows.",
       "sizes": {
-        "SKILL.md": 12362,
-        "inlined": 107699,
-        "content": 108118
+        "SKILL.md": 13320,
+        "inlined": 108657,
+        "content": 109076
       },
       "files_inlined": [
         "references/datasets.md",
@@ -2886,15 +2950,15 @@
         "scripts/molecular_generation.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:cb35eb555d6e8cf4deaa72d8c10c2c9130063e27ef472b62e412e58ec0f1defd"
+      "sha256": "sha256:2726d785119ae76f91d98c40c3e84653dd60341f3f91befa986b408ace1eae9d"
     },
     "pytorch-lightning": {
       "id": "pytorch-lightning",
       "description": "Deep learning framework (PyTorch Lightning / lightning package). Organize PyTorch code into LightningModules, configure Trainers for multi-GPU/TPU, implement data pipelines, callbacks, logging (W&B, TensorBoard, MLflow), distributed training (DDP, FSDP, DeepSpeed), for scalable neural network training.",
       "sizes": {
-        "SKILL.md": 7489,
-        "inlined": 139842,
-        "content": 140358
+        "SKILL.md": 8446,
+        "inlined": 140799,
+        "content": 141316
       },
       "files_inlined": [
         "references/best_practices.md",
@@ -2909,15 +2973,15 @@
         "scripts/template_lightning_module.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:0eea52f36495460a87d295fb517987028be720a025f36efad6957b038aafffd2"
+      "sha256": "sha256:341ca86a020b6e1ac85e8a4123d7016f59859dad5be9fe43fa043f0f1164204b"
     },
     "pyzotero": {
       "id": "pyzotero",
       "description": "Zotero library type: ''user'' or ''group'' (default ''user'').",
       "sizes": {
-        "SKILL.md": 5709,
-        "inlined": 41844,
-        "content": 41653
+        "SKILL.md": 6667,
+        "inlined": 42802,
+        "content": 42611
       },
       "files_inlined": [
         "references/authentication.md",
@@ -2936,15 +3000,15 @@
         "references/write-api.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:63329a4793926164a85bec44fd7f67079ff0d59d30e7bc39605f62c87904583e"
+      "sha256": "sha256:dc8dccbcc301a40497ed5ad74070e891e7193b21338104fc2b7f2a1278f52933"
     },
     "qiskit": {
       "id": "qiskit",
       "description": "Build, simulate, transpile, and execute quantum circuits with Qiskit and IBM Quantum Runtime. Use for Qiskit 2.x circuits and operators, V2 Sampler or Estimator primitives, target-aware transpilation, local or noisy simulation, IBM QPU execution, Runtime sessions or batches, error mitigation, and Qiskit ecosystem packages.",
       "sizes": {
-        "SKILL.md": 10864,
-        "inlined": 139609,
-        "content": 140232
+        "SKILL.md": 11822,
+        "inlined": 140567,
+        "content": 141190
       },
       "files_inlined": [
         "references/algorithms.md",
@@ -2963,15 +3027,15 @@
         "scripts/run_local_primitives.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:13866136d8bfb19cd83e4c82a54869e8a15edcac462c0a8a27e5c72ea2a9cdcf"
+      "sha256": "sha256:df1b1eefe8339d1310b6f7f73f16a1eb26dcf99c7cb560b9e3cbe506057201f9"
     },
     "qutip": {
       "id": "qutip",
       "description": "Simulate and audit closed and open quantum-system models with QuTiP 5, including deterministic, trajectory, steady-state, spectral, and phase-space workflows. Use for local quantum-dynamics work where physical assumptions, dimensions, and numerical convergence must be explicit.",
       "sizes": {
-        "SKILL.md": 12836,
-        "inlined": 144245,
-        "content": 144835
+        "SKILL.md": 13794,
+        "inlined": 145203,
+        "content": 145793
       },
       "files_inlined": [
         "references/advanced.md",
@@ -2988,15 +3052,15 @@
         "scripts/two_level_simulation.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:9a1f0034a75cee819abeda2774038488f6fc8ac5c9b791dfe6f02da5b3cf9624"
+      "sha256": "sha256:687717ef2addd4e987989ca0f8f3bf0e13cb03efaaf4aa1be287d2e5604d60c6"
     },
     "rdkit": {
       "id": "rdkit",
       "description": "Cheminformatics toolkit for fine-grained molecular control. SMILES/SDF parsing, descriptors (MW, LogP, TPSA), fingerprints, substructure search, 2D/3D generation, similarity, reactions. For standard workflows with simpler interface, use datamol (wrapper around RDKit). Use rdkit for advanced control, custom sanitization, specialized algorithms.",
       "sizes": {
-        "SKILL.md": 5757,
-        "inlined": 93139,
-        "content": 93622
+        "SKILL.md": 6715,
+        "inlined": 94132,
+        "content": 94615
       },
       "files_inlined": [
         "references/api_reference.md",
@@ -3009,15 +3073,15 @@
         "scripts/substructure_filter.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:b96e534d5d8db4fe6a45350709c7b1d120d3cef9e6e84d3bf34136252b1f50b0"
+      "sha256": "sha256:2ff00ac8738e58096f70dfac730971830e7d78b58d11f4bb129230ab737c471b"
     },
     "relsa-severity-assessment": {
       "id": "relsa-severity-assessment",
       "description": "Multivariate severity assessment and humane endpoint prediction for laboratory animal studies using the RELSA (RELative Severity Assessment) score and ARIMA-based foRcast forecasting. Use when combining welfare readouts — body weight or weight loss, body temperature, clinical or nesting scores, biomarkers, activity, heart rate, burrowing, wheel running — into one severity score per animal per day, when asking which animals are at risk of reaching a humane endpoint or when one will be reached, when defining attention/danger zones or thresholds on a severity scale by kernel density estimation, or when reporting severity for a 3Rs, refinement, animal-welfare, or EU Directive 2010/63/EU severity-assessment context. Covers directionality (\"turned\" variables), baseline normalization, reference sets, RELSA weights, ARIMA prediction intervals, and RMSE/PICP/MPIW evaluation.",
       "sizes": {
-        "SKILL.md": 18768,
-        "inlined": 121779,
-        "content": 122001
+        "SKILL.md": 19726,
+        "inlined": 122737,
+        "content": 122959
       },
       "files_inlined": [
         "references/forecasting.md",
@@ -3030,15 +3094,15 @@
         "assets/example_cohort.csv"
       ],
       "files_excluded": [],
-      "sha256": "sha256:df6eda9a9b3b5d0c642969cecbd9705d9d71039b004f6e54e8a22060d30f7adf"
+      "sha256": "sha256:5e5023e9bcbca6e53ff2dc2990e7e9af455aab2ab6f9b59d06443da685238daa"
     },
     "research-grants": {
       "id": "research-grants",
       "description": "Write competitive research proposals for NSF, NIH, DOE, DARPA, and Taiwan NSTC. Agency-specific formatting, review criteria, budget preparation, broader impacts, significance statements, innovation narratives, and compliance with submission requirements.",
       "sizes": {
-        "SKILL.md": 13264,
-        "inlined": 251043,
-        "content": 250499
+        "SKILL.md": 14231,
+        "inlined": 252067,
+        "content": 251523
       },
       "files_inlined": [
         "references/README.md",
@@ -3058,15 +3122,15 @@
         "assets/nsf_project_summary_template.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:f6ea93b03a8e39562bd6aa1fb83e0a15dbcf8e62d6371cce518bc13adae59fb5"
+      "sha256": "sha256:5e54b3bdfe8cc483b5a789c8c1efd841f608f002488003ec119fdb23186d8f19"
     },
     "research-lookup": {
       "id": "research-lookup",
       "description": "Optional OpenRouter key for explicit Perplexity use.",
       "sizes": {
-        "SKILL.md": 13524,
-        "inlined": 89901,
-        "content": 89381
+        "SKILL.md": 14482,
+        "inlined": 90859,
+        "content": 90339
       },
       "files_inlined": [
         "scripts/manuscript_packet.py",
@@ -3074,15 +3138,15 @@
         "README.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:4b9d1c80acd0f768f9765fbc12b289041a08c298570e52ecc9419b6adedc17ff"
+      "sha256": "sha256:ad8e50fb38d5fd76e454bd8e442f3224c030288d21f6e1ef563ec5a51387d05b"
     },
     "rowan": {
       "id": "rowan",
       "description": "Rowan computational chemistry API key.",
       "sizes": {
-        "SKILL.md": 13346,
-        "inlined": 39503,
-        "content": 39058
+        "SKILL.md": 14321,
+        "inlined": 42298,
+        "content": 41842
       },
       "files_inlined": [
         "references/access_and_pricing.md",
@@ -3092,15 +3156,15 @@
         "references/workflow_catalog.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:a70a95b0e0f23c3a070e5ebef2456eebf2d3ded23707ec0b9706b797f05c7149"
+      "sha256": "sha256:b98c614dc83fcc4994aee281aa0df8b573e112f2b023cb0351c41260bd8a7b22"
     },
     "scanpy": {
       "id": "scanpy",
       "description": "Standard single-cell RNA-seq analysis pipeline. Use for QC, normalization, dimensionality reduction (PCA/UMAP/t-SNE), clustering, differential expression, visualization, and converting R-friendly single-cell formats such as Seurat or SingleCellExperiment RDS files into h5ad for Scanpy. Best for exploratory scRNA-seq analysis with established workflows. For deep learning models use scvi-tools; for data format questions use anndata.",
       "sizes": {
-        "SKILL.md": 15556,
-        "inlined": 121763,
-        "content": 123063
+        "SKILL.md": 16514,
+        "inlined": 122721,
+        "content": 124021
       },
       "files_inlined": [
         "references/analysis_workflow.md",
@@ -3129,15 +3193,15 @@
         "assets/pipeline_config.json"
       ],
       "files_excluded": [],
-      "sha256": "sha256:48d412480b7d54de08bd24997e0596bb661494322ba25761bba09e033960b102"
+      "sha256": "sha256:99ea7627e250bad67155b1f95b90d98fb78fa2caf9bc6b0ff57034fa73b25eef"
     },
     "scholar-evaluation": {
       "id": "scholar-evaluation",
       "description": "Provide qualitative-first, evidence-traceable developmental review of scholarly works and audit low-stakes research-assessment rubrics with optional local quality controls. Never use for ranking people or consequential decisions.",
       "sizes": {
-        "SKILL.md": 10598,
-        "inlined": 156748,
-        "content": 157669
+        "SKILL.md": 11556,
+        "inlined": 157706,
+        "content": 158627
       },
       "files_inlined": [
         "references/evaluation_framework.md",
@@ -3160,15 +3224,15 @@
         "assets/rubric_template.json"
       ],
       "files_excluded": [],
-      "sha256": "sha256:4d1653d90a3a0ef5e6c555b3b0ebaca9a5e1452ca036a4cde42dfce15e0a9795"
+      "sha256": "sha256:dc28664feb2b5bf8ce400f8e657b6ffe41f5015aaf927f724e12db4447333094"
     },
     "scientific-brainstorming": {
       "id": "scientific-brainstorming",
       "description": "Facilitates evidence-aware scientific ideation with independent generation, structured discussion, explicit assumptions, transparent evaluation, adversarial review, and decision logs. Use for early-stage research brainstorming or prioritizing candidate directions; hand off empirical validation, study design, ethics or regulatory review, and clinical questions to appropriate experts or skills.",
       "sizes": {
-        "SKILL.md": 12909,
-        "inlined": 128702,
-        "content": 128973
+        "SKILL.md": 13867,
+        "inlined": 129660,
+        "content": 129931
       },
       "files_inlined": [
         "references/brainstorming_methods.md",
@@ -3182,15 +3246,15 @@
         "scripts/validate_register.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:ea2e2fbb054b4102287a7d7f2743b0dad855bef4669a5b64cbf9377564ded880"
+      "sha256": "sha256:35fb3df0b07dc2ee8d42475d2af65ebd5524b899d8aaf34bd4b05c21f73fc46e"
     },
     "scientific-critical-thinking": {
       "id": "scientific-critical-thinking",
       "description": "Evaluate scientific claims and evidence quality. Use for assessing experimental design validity, identifying biases and confounders, applying evidence grading frameworks (GRADE, Cochrane Risk of Bias), or teaching critical analysis. Best for understanding evidence quality, identifying flaws. For formal peer review writing use peer-review.",
       "sizes": {
-        "SKILL.md": 9144,
-        "inlined": 105830,
-        "content": 106215
+        "SKILL.md": 10111,
+        "inlined": 106797,
+        "content": 107182
       },
       "files_inlined": [
         "references/common_biases.md",
@@ -3202,15 +3266,15 @@
         "references/statistical_pitfalls.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:0ab7f1f279d4c3e2b3e479e9d1c0d08cdd0430f35df7d4d0cf8db3be93da7c75"
+      "sha256": "sha256:85d69b40428e0216700103fc2b43759fd7ceaa0e3f51732bc2f21449bb136d80"
     },
     "scientific-schematics": {
       "id": "scientific-schematics",
       "description": "OpenRouter API key for the skill's LLM-powered steps.",
       "sizes": {
-        "SKILL.md": 16357,
-        "inlined": 93797,
-        "content": 93336
+        "SKILL.md": 17315,
+        "inlined": 94755,
+        "content": 94294
       },
       "files_inlined": [
         "references/best_practices.md",
@@ -3220,15 +3284,15 @@
         "scripts/generate_schematic_ai.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:c97018ff5ae1e1b10447f79788fd95d7403f90f6e591c4705f98addcc38fe939"
+      "sha256": "sha256:44053807709364d9887a3482e968261a005c6c1e632c9c24368c52110c6b5ccc"
     },
     "scientific-slides": {
       "id": "scientific-slides",
       "description": "OpenRouter API key for the skill's LLM-powered steps.",
       "sizes": {
-        "SKILL.md": 20553,
-        "inlined": 382705,
-        "content": 380774
+        "SKILL.md": 21529,
+        "inlined": 384552,
+        "content": 382615
       },
       "files_inlined": [
         "references/beamer_guide.md",
@@ -3256,15 +3320,15 @@
         "assets/timing_guidelines.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:1535106d143ad169226677121e88ef3f870e74842a4ffd8464343a0a61c9eab7"
+      "sha256": "sha256:57f4cfd33abfda209e8126ac7f24e4abf828c861ddbd9d3c78c5cd035601e227"
     },
     "scientific-visualization": {
       "id": "scientific-visualization",
       "description": "Create and audit truthful, accessible, publication-ready scientific figures with Matplotlib, Seaborn, or Plotly. Use for figure design, multi-panel layouts, uncertainty and missing-data displays, color/contrast review, image metadata validation, and journal export planning.",
       "sizes": {
-        "SKILL.md": 12615,
-        "inlined": 190115,
-        "content": 190792
+        "SKILL.md": 13573,
+        "inlined": 191073,
+        "content": 191750
       },
       "files_inlined": [
         "references/color_palettes.md",
@@ -3286,15 +3350,15 @@
         "assets/publisher_profiles.json"
       ],
       "files_excluded": [],
-      "sha256": "sha256:586f577809c5e854c7ba106581aa5d395fc7534dbf4fd9c070163b0260235d93"
+      "sha256": "sha256:d62df6bedb340bf67984256f153d505c1e40e0766448ab32effd48a8430ded6e"
     },
     "scientific-writing": {
       "id": "scientific-writing",
       "description": "Draft, revise, and audit scientific manuscripts or reports with explicit evidence provenance, reporting-guideline coverage, authorship accountability, confidentiality controls, and local consistency checks. Use for manuscript sections, references, declarations, tables, figures, or submission preparation when scientific accuracy and traceability matter.",
       "sizes": {
-        "SKILL.md": 13045,
-        "inlined": 172523,
-        "content": 174060
+        "SKILL.md": 14003,
+        "inlined": 173481,
+        "content": 175018
       },
       "files_inlined": [
         "references/authorship_ai_confidentiality.md",
@@ -3329,29 +3393,29 @@
         "assets/source_manifest_template.json"
       ],
       "files_excluded": [],
-      "sha256": "sha256:048ffeca2c2d7aecba3f59da954eaa3e1138aef27642a20bc66842b1070d5422"
+      "sha256": "sha256:5b867f4160fb0cc542966d4d63ed6eb18a5317aadf2dbf28d4f5d4b2fb85ccea"
     },
     "scikit-bio": {
       "id": "scikit-bio",
       "description": "Biological data toolkit. Sequence analysis, alignments, phylogenetic trees, diversity metrics (alpha/beta, UniFrac), ordination (PCoA), PERMANOVA, FASTA/Newick I/O, for microbiome analysis.",
       "sizes": {
-        "SKILL.md": 19468,
-        "inlined": 40111,
-        "content": 40185
+        "SKILL.md": 20425,
+        "inlined": 41068,
+        "content": 41143
       },
       "files_inlined": [
         "references/api_reference.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:e69d4f10e98b643ba3b14f4aa06c2d43d2dee8f56e5fecd6af99fc807fd588ab"
+      "sha256": "sha256:ea728c94c1b968d335417a1f04f2b876904ac7809958a0a9798ea9876b52b912"
     },
     "scikit-learn": {
       "id": "scikit-learn",
       "description": "Machine learning in Python with scikit-learn. Use when working with supervised learning (classification, regression), unsupervised learning (clustering, dimensionality reduction), model evaluation, hyperparameter tuning, preprocessing, or building ML pipelines. Provides comprehensive reference documentation for algorithms, preprocessing techniques, pipelines, and best practices.",
       "sizes": {
-        "SKILL.md": 10272,
-        "inlined": 120965,
-        "content": 121520
+        "SKILL.md": 11230,
+        "inlined": 121923,
+        "content": 122478
       },
       "files_inlined": [
         "references/common_workflows.md",
@@ -3366,15 +3430,15 @@
         "scripts/clustering_analysis.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:e48aa397f8fa122fc8a441712810fdd0751270b1dde7ca4c2e8dc3923938ee89"
+      "sha256": "sha256:35a74d866b04788adf44be5353ba8cc7481b815c6756ba70801c92a392cc1764"
     },
     "scikit-survival": {
       "id": "scikit-survival",
       "description": "Build, evaluate, and audit right-censored or competing-risk survival workflows with scikit-survival, including leakage-safe preprocessing, model selection, probability prediction, and censoring-aware metrics.",
       "sizes": {
-        "SKILL.md": 13591,
-        "inlined": 146383,
-        "content": 147062
+        "SKILL.md": 14549,
+        "inlined": 147341,
+        "content": 148020
       },
       "files_inlined": [
         "references/competing-risks.md",
@@ -3391,7 +3455,7 @@
         "scripts/validate_survival_csv.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:ae53c414e6615b5b7b92424ae69417c9cc527a9b6e0af4bf5e7aada5f5221d6a"
+      "sha256": "sha256:1b7cf4854a03c6a712be63a0b1921361e792260a42701545d1197ac24db24565"
     },
     "scvelo": {
       "id": "scvelo",
@@ -3412,9 +3476,9 @@
       "id": "scvi-tools",
       "description": "Deep generative models for single-cell omics. Use when you need probabilistic batch correction (scVI), transfer learning, differential expression with uncertainty, or multi-modal integration (TOTALVI, MultiVI). Best for advanced modeling, batch effects, multimodal data. For standard analysis pipelines use scanpy.",
       "sizes": {
-        "SKILL.md": 8291,
-        "inlined": 103404,
-        "content": 103832
+        "SKILL.md": 9248,
+        "inlined": 104361,
+        "content": 104790
       },
       "files_inlined": [
         "references/differential-expression.md",
@@ -3427,15 +3491,15 @@
         "references/workflows.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:4bc0abeb367d3af84b95e17ffa7a39b3ac075b774fbf6e46eaabc4a3b40d58c6"
+      "sha256": "sha256:5a657222016b30176dd304025804edee89e582861d02bb102d4a486d7f119d22"
     },
     "seaborn": {
       "id": "seaborn",
       "description": "Statistical visualization with pandas integration. Use for quick exploration of distributions, relationships, and categorical comparisons with attractive defaults. Best for box plots, violin plots, pair plots, heatmaps. Built on matplotlib. For interactive plots use plotly; for publication styling use scientific-visualization.",
       "sizes": {
-        "SKILL.md": 9706,
-        "inlined": 87709,
-        "content": 88076
+        "SKILL.md": 10664,
+        "inlined": 88667,
+        "content": 89034
       },
       "files_inlined": [
         "references/examples.md",
@@ -3447,15 +3511,15 @@
         "references/plotting_functions.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:12afdf6847a27965d705a02491111f4685cec458b171e3f1ec42dbb2514ea508"
+      "sha256": "sha256:6390957ee93e9fa874a9c7867c70dcab5efee252049e8cacbde8b9db9cfb87f7"
     },
     "shap": {
       "id": "shap",
       "description": "Explain and audit machine-learning predictions with SHAP. Use for selecting SHAP explainers and maskers, computing and validating feature attributions, handling multi-output explanations, and producing local or global SHAP visualizations.",
       "sizes": {
-        "SKILL.md": 12886,
-        "inlined": 120100,
-        "content": 120632
+        "SKILL.md": 13844,
+        "inlined": 121058,
+        "content": 121590
       },
       "files_inlined": [
         "references/data-maskers.md",
@@ -3469,15 +3533,15 @@
         "scripts/tabular_report.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:3af50a0241ff9553c17d27433d9f0fb3f8bda21085943decc076f079af8e3d98"
+      "sha256": "sha256:ff8a04905fae6a42e2ffebc413a74a22eca516c0ae9c483aaa43ccd36b0b42bb"
     },
     "simpy": {
       "id": "simpy",
       "description": "Build, inspect, test, and analyze bounded process-based discrete-event simulations with SimPy, including events, resources, interrupts, monitoring, replications, warm-up, and reproducible output analysis.",
       "sizes": {
-        "SKILL.md": 12454,
-        "inlined": 147417,
-        "content": 148090
+        "SKILL.md": 13412,
+        "inlined": 148375,
+        "content": 149048
       },
       "files_inlined": [
         "references/cli-guide.md",
@@ -3497,15 +3561,15 @@
         "scripts/validate_simulation_config.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:98ce9f048db36ea5a76a1a0a30da4000dbcc5f40a0d539ef515d813b7ed5735b"
+      "sha256": "sha256:f7a0b2a24e40157afe6a8d71aea0e18f4d456fd12590c7289728ca9bc067bdd7"
     },
     "stable-baselines3": {
       "id": "stable-baselines3",
       "description": "Production-ready reinforcement learning algorithms (PPO, SAC, DQN, TD3, DDPG, A2C) with scikit-learn-like API. Use for standard RL experiments, quick prototyping, and well-documented algorithm implementations. Best for single-agent RL with Gymnasium environments. For high-performance parallel training, multi-agent systems, or custom vectorized environments, use pufferlib instead.",
       "sizes": {
-        "SKILL.md": 10789,
-        "inlined": 89425,
-        "content": 89840
+        "SKILL.md": 11746,
+        "inlined": 90463,
+        "content": 90879
       },
       "files_inlined": [
         "references/algorithms.md",
@@ -3517,15 +3581,15 @@
         "scripts/train_rl_agent.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:ade7fa3571f9e5a1444bc8dda99c86ca19acfa4de1498944436e920753301e3a"
+      "sha256": "sha256:8e4f429c3f20a51aa5e1c1edae3ecce87d9b8742d7d1514c3b14051fa752d7a8"
     },
     "statistical-analysis": {
       "id": "statistical-analysis",
       "description": "Guided statistical analysis for research data - test selection, assumption checking, effect sizes, power analysis, Bayesian alternatives, and APA-formatted reporting. Use whenever a user wants to compare groups, test a hypothesis, analyze experimental or survey data, check statistical assumptions, compute required sample sizes, or write up results - even if they never name a specific test. Covers t-tests, ANOVA, chi-square, correlation, regression, non-parametric and Bayesian methods. For low-level model APIs, see the statsmodels and pymc skills.",
       "sizes": {
-        "SKILL.md": 19884,
-        "inlined": 116973,
-        "content": 117112
+        "SKILL.md": 20842,
+        "inlined": 117931,
+        "content": 118070
       },
       "files_inlined": [
         "references/assumptions_and_diagnostics.md",
@@ -3536,15 +3600,15 @@
         "scripts/assumption_checks.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:2d15fc9799d0c23f8db823c41e476f7b5d583750e36558b1e025a9ef486bf9f9"
+      "sha256": "sha256:ecb28586c6b3bd718e9e46d2916d9646fc9851942615d9963b300fef506f50a6"
     },
     "statistical-power": {
       "id": "statistical-power",
       "description": "Sample-size and statistical power calculations for planning studies. Use whenever someone asks \"how many subjects/samples/replicates do I need\", wants an a priori power analysis, a minimum detectable effect (MDE), a power curve, or needs to justify a sample size for a grant, IRB protocol, or pre-registration. Covers closed-form power for t-tests, ANOVA, proportions, correlations, chi-square, and regression, plus simulation-based (Monte Carlo) power for designs with no formula — logistic/Poisson regression, mixed models, cluster-randomized trials, survival, and interactions. Use this skill even when the request only mentions an effect size, alpha, or \"80% power\" without saying \"power analysis\" explicitly. For laying out the study (randomization, blocking, factorial/DOE, crossover, sequential designs) use experimental-design; for analyzing data already collected and reporting it use statistical-analysis.",
       "sizes": {
-        "SKILL.md": 14313,
-        "inlined": 52298,
-        "content": 52348
+        "SKILL.md": 15271,
+        "inlined": 53256,
+        "content": 53306
       },
       "files_inlined": [
         "references/closed_form_recipes.md",
@@ -3554,15 +3618,15 @@
         "scripts/simulate_power.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:ee6ab2334891525d855c92d703815c5e6a1d7a42decc06b5f30ad69d48befacb"
+      "sha256": "sha256:e6e993f04470827ac8c4c77d22b702b08e843013229e1a9cef76db6ba4e53d8e"
     },
     "statsmodels": {
       "id": "statsmodels",
       "description": "Statistical models library for Python. Use when you need specific model classes (OLS, GLM, mixed models, ARIMA) with detailed diagnostics, residuals, and inference. Best for econometrics, time series, rigorous inference with coefficient tables. For guided statistical test selection with APA reporting use statistical-analysis.",
       "sizes": {
-        "SKILL.md": 9856,
-        "inlined": 108432,
-        "content": 108601
+        "SKILL.md": 10814,
+        "inlined": 111072,
+        "content": 111241
       },
       "files_inlined": [
         "references/discrete_choice.md",
@@ -3575,15 +3639,15 @@
         "references/time_series.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:f91c92b259bc64285dbd0bdc3c4b468b36fc88c4930db75ece81b3e5b5fe83df"
+      "sha256": "sha256:9e5005f345d70bb53be69499909ba08576d0e447a797fb9590704db1011b80b2"
     },
     "sympy": {
       "id": "sympy",
       "description": "Use when you need exact symbolic math in Python — algebra, calculus, equation solving, symbolic linear algebra, or code generation via lambdify/LaTeX. Prefer NumPy or SciPy when floating-point approximations are sufficient.",
       "sizes": {
-        "SKILL.md": 9808,
-        "inlined": 71870,
-        "content": 72197
+        "SKILL.md": 10766,
+        "inlined": 72828,
+        "content": 73155
       },
       "files_inlined": [
         "references/advanced-topics.md",
@@ -3594,7 +3658,7 @@
         "references/physics-mechanics.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:2cabfce58c7ab23c2cb7a86e3c44e6532e2ebcd21f694fe2a28d046db50c9cd9"
+      "sha256": "sha256:151f156e9d114dd3a8214ac8bfffa19aa4b73f0b0b3ad6827016412e2e5fd138"
     },
     "tamarind": {
       "id": "tamarind",
@@ -3673,9 +3737,9 @@
       "id": "torch-geometric",
       "description": "PyTorch Geometric (PyG) for graph neural networks — node/link/graph classification, message passing (GCN, GAT, GraphSAGE, GIN), heterogeneous graphs, neighbor sampling, and custom datasets. Use when working with torch_geometric, not for general NetworkX analytics or non-graph PyTorch models.",
       "sizes": {
-        "SKILL.md": 18350,
-        "inlined": 61366,
-        "content": 61574
+        "SKILL.md": 19308,
+        "inlined": 62324,
+        "content": 62532
       },
       "files_inlined": [
         "references/custom_datasets.md",
@@ -3686,15 +3750,15 @@
         "references/scaling.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:a225e9f01872e2d513d46cbeb8cb1e790deeaa51046dd6a58af632728577e9ea"
+      "sha256": "sha256:0ae2a79b84e30ce8a2225b09aa317bdfae9a5ae77da34f29d73c7e9a6b408388"
     },
     "torchdrug": {
       "id": "torchdrug",
       "description": "Build and troubleshoot TorchDrug 0.2.1 workflows for molecular graphs, property prediction, self-supervised pretraining, molecule generation, retrosynthesis, protein representation learning, and knowledge graph reasoning. Use when code imports torchdrug or needs its datasets, models, tasks, or Engine.",
       "sizes": {
-        "SKILL.md": 9136,
-        "inlined": 56820,
-        "content": 57308
+        "SKILL.md": 10094,
+        "inlined": 57778,
+        "content": 58266
       },
       "files_inlined": [
         "references/core_concepts.md",
@@ -3707,15 +3771,15 @@
         "references/retrosynthesis.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:daa487fa2912835bdb851a57d29dada143e24b6d6671176a359bca4fb56154b5"
+      "sha256": "sha256:2f301746b48c5adef2583050cb646ede7eba13d521911c05d3592b894d49069d"
     },
     "transformers": {
       "id": "transformers",
       "description": "Hugging Face Transformers for loading Hub models, running pipeline inference, text generation, and Trainer fine-tuning on NLP, vision, audio, and multimodal tasks. Use when working with AutoModel, pipelines, tokenizers, or TrainingArguments—not for general ML outside the Transformers library.",
       "sizes": {
-        "SKILL.md": 7045,
-        "inlined": 55605,
-        "content": 55913
+        "SKILL.md": 8003,
+        "inlined": 56563,
+        "content": 56871
       },
       "files_inlined": [
         "references/generation.md",
@@ -3725,15 +3789,15 @@
         "references/training.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:822b3a19d34c470fe878871394bb7961692fb6149d5d3d4e8fbbfc52981783f7"
+      "sha256": "sha256:fa8f1d6d28ada5612336c084ac062c98f39d0e57013d68706ece7c29a91e8a50"
     },
     "treatment-plans": {
       "id": "treatment-plans",
       "description": "Format and structurally validate local treatment-plan documentation after clinical decisions have already been supplied and verified by authorized licensed professionals. Use for source traceability, clinician-authored intervention records, goals and checkpoints, shared-decision records, reconciliation handoffs, and release gates—not for clinical decision-making.",
       "sizes": {
-        "SKILL.md": 9810,
-        "inlined": 153828,
-        "content": 154974
+        "SKILL.md": 10768,
+        "inlined": 154786,
+        "content": 155932
       },
       "files_inlined": [
         "references/README.md",
@@ -3760,29 +3824,29 @@
         "assets/transition_reconciliation_template.json"
       ],
       "files_excluded": [],
-      "sha256": "sha256:73b9c14e1a2a2fd59a0ed0ecbb06650a7972f6ba79cfc55548600a57ed42d541"
+      "sha256": "sha256:31aef8fafa56bb5995548c05d210f11f573c571162e3ad1a25bf99773673b61d"
     },
     "umap-learn": {
       "id": "umap-learn",
       "description": "Use UMAP-learn for nonlinear dimensionality reduction, 2D/3D embeddings, clustering preprocessing, supervised or semi-supervised UMAP, DensMAP, AlignedUMAP, and Parametric UMAP workflows.",
       "sizes": {
-        "SKILL.md": 16983,
-        "inlined": 39490,
-        "content": 39871
+        "SKILL.md": 17506,
+        "inlined": 40013,
+        "content": 40395
       },
       "files_inlined": [
         "references/api_reference.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:ad01b6fe0182ea84aad90e1dc2edfe8089f96153250424131e8d78da29c4c7b5"
+      "sha256": "sha256:92882d1fc778ff8c58b692d850da09eab8c0a2afb73be41b6892332a2b82ff9e"
     },
     "uncertainty-and-units": {
       "id": "uncertainty-and-units",
       "description": "Track physical units and propagate measurement uncertainty in scientific calculations using pint and uncertainties. Use for unit conversion and dimensional checking, GUM uncertainty budgets, Type A and Type B evaluation, coverage factors and expanded uncertainty, Monte Carlo propagation, significant-figure and plus-minus reporting, error propagation through curve fits, CODATA constants, auditing Python code for stripped units or broken uncertainty propagation, and order-of-magnitude plausibility checks using dimensionless groups (Reynolds, Peclet, Damkohler, Knudsen, Biot, Womersley), characteristic scales such as diffusion time or Debye length, and observed magnitude ranges. Trigger on \"is this number physically reasonable\", \"sanity check these units\", \"what regime is this flow in\", or a result that looks off by orders of magnitude.",
       "sizes": {
-        "SKILL.md": 18851,
-        "inlined": 207914,
-        "content": 208242
+        "SKILL.md": 19809,
+        "inlined": 208872,
+        "content": 209200
       },
       "files_inlined": [
         "references/domain-conversions.md",
@@ -3800,15 +3864,15 @@
         "scripts/uncertainty_budget.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:3a32221e037bbb8909bb61bc4d1fc8368e464a7632504225cd9be49acc5138c2"
+      "sha256": "sha256:45d321823a3db459666470e4eb51a0b4566e564a7b2ac52eaefa09f26b7bf24e"
     },
     "usfiscaldata": {
       "id": "usfiscaldata",
       "description": "Query the U.S. Treasury Fiscal Data REST API for federal financial data. No API key required. Use for national debt (Debt to the Penny), Daily Treasury Statements, Monthly Treasury Statements, Treasury securities auctions, interest rates, foreign exchange rates, savings bonds, or U.S. government revenue and spending statistics.",
       "sizes": {
-        "SKILL.md": 6862,
-        "inlined": 59241,
-        "content": 59773
+        "SKILL.md": 7820,
+        "inlined": 60401,
+        "content": 60933
       },
       "files_inlined": [
         "references/api-basics.md",
@@ -3821,15 +3885,15 @@
         "references/response-format.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:f18b9a121df0d6850cb3e0969e6d326b7236a3baabaffc5885750521e6b27a69"
+      "sha256": "sha256:6572403b4233b4989baa7d42f51cf33460430ff4a5610fea36f07273b45941b3"
     },
     "vaex": {
       "id": "vaex",
       "description": "Use this skill for processing and analyzing large tabular datasets (billions of rows) that exceed available RAM. Vaex excels at out-of-core DataFrame operations, lazy evaluation, fast aggregations, efficient visualization of big data, and machine learning on large datasets. Apply when users need to work with large CSV/HDF5/Arrow/Parquet files, perform fast statistics on massive datasets, create visualizations of big data, or build ML pipelines that do not fit in memory.",
       "sizes": {
-        "SKILL.md": 7941,
-        "inlined": 88005,
-        "content": 88376
+        "SKILL.md": 8898,
+        "inlined": 88962,
+        "content": 89334
       },
       "files_inlined": [
         "references/core_dataframes.md",
@@ -3840,15 +3904,15 @@
         "references/visualization.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:d889c0b6f12014e02df54c0310639e54284a1d0edeacb963a41b67f3db33f3be"
+      "sha256": "sha256:6270f26b57f67b549644fc5630e62c107c9cc90d70511966e4224a9f35ead0e0"
     },
     "venue-templates": {
       "id": "venue-templates",
       "description": "Prepare journal manuscripts, conference papers, research posters, and grant documents using venue-specific formatting guidance and bundled LaTeX scaffolds. Use when selecting an official template, checking current page or anonymity rules, adapting academic writing to a venue, or inspecting a submission PDF.",
       "sizes": {
-        "SKILL.md": 10777,
-        "inlined": 401526,
-        "content": 400088
+        "SKILL.md": 11735,
+        "inlined": 402484,
+        "content": 401046
       },
       "files_inlined": [
         "references/cell_press_style.md",
@@ -3883,15 +3947,15 @@
         "assets/posters/beamerposter_academic.tex"
       ],
       "files_excluded": [],
-      "sha256": "sha256:696cd89a82df8cf36ed037bb093b6988413fd55f7fdd80834b8fceb45f6cdc6a"
+      "sha256": "sha256:72422160bf6b3c37e096b5ed9f28d7d2a75333637f98c138ebb5e96d48799589"
     },
     "waypoint-bio": {
       "id": "waypoint-bio",
       "description": "Hugging Face read token with access to the gated outpost-bio/Waypoint-*, outpost-bio/Atlas, and outpost-bio/Compass repos.",
       "sizes": {
-        "SKILL.md": 13088,
-        "inlined": 71123,
-        "content": 70494
+        "SKILL.md": 14046,
+        "inlined": 72081,
+        "content": 71452
       },
       "files_inlined": [
         "references/cli-reference.md",
@@ -3902,7 +3966,7 @@
         "scripts/vocab_coverage.py"
       ],
       "files_excluded": [],
-      "sha256": "sha256:3d5a216414a00053a8957c3d915fbe7f815e7e637552b5d2d0344675ef7a6387"
+      "sha256": "sha256:35718c66e1da0a2697c54c035be5755ce297f756106c531c1bb301e5dbfc08d3"
     },
     "what-if-oracle": {
       "id": "what-if-oracle",
@@ -3988,9 +4052,9 @@
       "id": "zarr-python",
       "description": "Chunked N-D arrays for cloud storage (Zarr-Python 3). Compressed arrays, parallel I/O, S3/GCS via fsspec, NumPy/Dask/Xarray compatible, for large-scale scientific computing pipelines.",
       "sizes": {
-        "SKILL.md": 7530,
-        "inlined": 33445,
-        "content": 33765
+        "SKILL.md": 8488,
+        "inlined": 34403,
+        "content": 34723
       },
       "files_inlined": [
         "references/api_reference.md",
@@ -4001,7 +4065,7 @@
         "references/v3_migration.md"
       ],
       "files_excluded": [],
-      "sha256": "sha256:3ada17d3bc9bb1417e3402e5cfe670df613bcb3e49d9b701d6fdd1329d7421e3"
+      "sha256": "sha256:0d4cc6babbe70bbb8ae9ea8a07f1f7c621e5f3dae717f9c0f53364567662253e"
     }
   }
 }

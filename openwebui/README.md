@@ -1,6 +1,6 @@
 # Scientific Agent Skills for Open WebUI
 
-All **163 skills** from [`K-Dense-AI/scientific-agent-skills`](https://github.com/K-Dense-AI/scientific-agent-skills)
+All **166 skills** from [`K-Dense-AI/scientific-agent-skills`](https://github.com/K-Dense-AI/scientific-agent-skills)
 converted into Open WebUI-compatible skills — single importable markdown
 blobs (`name` + `description` frontmatter, body = full instructions).
 
@@ -18,19 +18,19 @@ same document.
 
 ## Installation (choose one)
 
-### Option A — bulk import (all 163 at once, recommended)
+### Option A — bulk import (all 166 at once, recommended)
 
 1. Open **Workspace > Skills**.
 2. Click **Import JSON** (in the workspace header).
 3. Select [`skills.json`](skills.json).
 
 Every skill is created immediately (no per-skill confirmation). Shows up as
-163 skills, each sharing the id/name of its upstream folder (e.g. `scanpy`,
+166 skills, each sharing the id/name of its upstream folder (e.g. `scanpy`,
 `database-lookup`).
 
 ### Option A′ — one-click install from the command line (no UI clicks)
 
-Open WebUI has no bulk-skill API, so this installs all 163 through the official
+Open WebUI has no bulk-skill API, so this installs all 166 through the official
 `POST /api/v1/skills/create` endpoint, one call each (~1 second total):
 
 ```bash
@@ -74,10 +74,10 @@ on-demand via `view_skill`.
 
 | | |
 |---|---|
-| Source | K-Dense `scientific-agent-skills` v2.64.0 (repo `main`) |
-| Skill count | 163 |
-| Converted files | `skills/<id>.md` (163) |
-| Bulk import | `skills.json` (163 skills) |
+| Source | K-Dense `scientific-agent-skills` v2.69.0 (repo `main`) |
+| Skill count | 166 |
+| Converted files | `skills/<id>.md` (166) |
+| Bulk import | `skills.json` (166 skills) |
 | Build index | `manifest.json` (sizes, inlined/excluded files, sha256) |
 
 ### Fidelity notes

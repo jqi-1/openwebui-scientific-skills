@@ -37,16 +37,18 @@ uv pip install rowan-python
 import rowan
 rowan.api_key = "your_api_key_here"  # or set ROWAN_API_KEY env var
 
-# Submit a descriptors workflow — completes in under a minute
-wf = rowan.submit_descriptors_workflow("CC(=O)Oc1ccccc1C(=O)O", name="aspirin")
+# Descriptors require a 3D Molecule, not a bare SMILES string.
+mol = rowan.Molecule.from_smiles("CC(=O)Oc1ccccc1C(=O)O")
+wf = rowan.submit_descriptors_workflow(mol, name="aspirin")
 result = wf.result()
 
-print(result.descriptors['MW'])    # 180.16
-print(result.descriptors['SLogP']) # 1.19
-print(result.descriptors['TPSA'])  # 59.44
+print(result.descriptors["MW"])       # 180.042 — exact mass
+print(result.descriptors["SLogP"])    # 1.31
+print(result.descriptors["TopoPSA"])  # 63.6 — topological PSA
 ```
 
-If that prints without error, you're set up correctly.
+If that prints without error, you're set up correctly. These values and examples
+were verified against `rowan-python` 3.1.13.
 
 ## Installation
 
@@ -78,7 +80,7 @@ Verify authentication:
 import rowan
 user = rowan.whoami()  # Returns user info if authenticated
 print(f"User: {user.email}")
-print(f"Credits available: {user.credits_available_string}")
+print(f"Credits available: {user.credits_available_string()}")
 ```
 
 ## Molecule input formats
@@ -89,7 +91,18 @@ Rowan accepts molecules in the following formats:
 - **SMARTS patterns** (for some workflows): subset of SMARTS for substructure matching
 - **InChI** (if supported in your API version): `"InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H3"`
 
-The API will validate input and raise a `rowan.ValidationError` if a molecule cannot be parsed. Always use canonicalized SMILES for reproducibility.
+The API validates molecule inputs and raises `ValueError` for an unparseable
+SMILES or a workflow-incompatible input type. Always use canonicalized SMILES
+for reproducibility.
+
+### SMILES strings versus molecule objects
+
+Accepted input types vary by workflow in `rowan-python` 3.1.13. Only these
+common workflows accept a bare string: pKa, conformer search, membrane
+permeability, ADMET, LogP, macropKa, solubility, and pose-analysis MD. Most
+others — including descriptors, tautomer search, docking, analogue docking,
+BDE, NMR, and Fukui — require `rowan.Molecule.from_smiles(smiles)` or an RDKit
+`Mol`/`RWMol`. A wrong type raises `ValueError` before submission.
 
 **Tip:** Use RDKit to validate SMILES before submission:
 
@@ -114,21 +127,21 @@ import rowan
 
 # 1. Submit — use the specific workflow function (not the generic submit_workflow)
 workflow = rowan.submit_descriptors_workflow(
-    "CC(=O)Oc1ccccc1C(=O)O",
+    rowan.Molecule.from_smiles("CC(=O)Oc1ccccc1C(=O)O"),
     name="aspirin descriptors",
 )
 
 # 2. & 3. Wait and retrieve
 result = workflow.result()  # Blocks until done (default: wait=True, poll_interval=5)
 print(result.data)              # Raw dict
-print(result.descriptors['MW']) # 180.16 — use result.descriptors dict, not result.molecular_weight
+print(result.descriptors["MW"]) # 180.042 exact mass; no result.molecular_weight property
 ```
 
 For long-running workflows, use streaming:
 
 ```python
 for partial in workflow.stream_result(poll_interval=5):
-    print(f"Progress: {partial.complete}%")
+    print(f"Complete: {partial.complete}")  # bool, not a percentage
     print(partial.data)
 ```
 
@@ -149,28 +162,30 @@ Rowan's API includes **typed workflow result objects** with convenience properti
 
 Results have two access patterns:
 
-1. **Convenience properties** (recommended first): `result.descriptors`, `result.best_pose`, `result.conformer_energies`
+1. **Convenience properties** (recommended first): `result.descriptors`, `result.best_pose`, `result.scores`. Result classes differ: conformer search uses `get_energies()` and `get_conformers()` methods.
 2. **Raw fallback**: `result.data` — raw dictionary from the API
 
 Example:
 
 ```python
 result = rowan.submit_descriptors_workflow(
-    "CCO",
+    rowan.Molecule.from_smiles("CCO"),
     name="ethanol",
 ).result()
 
-# Convenience property (returns dict of all descriptors):
-print(result.descriptors['MW'])   # 46.042
-print(result.descriptors['SLogP'])  # -0.001
-print(result.descriptors['TPSA'])   # 57.96
+# Convenience property (returns all descriptors):
+print(result.descriptors["MW"])       # exact/monoisotopic mass
+print(result.descriptors["SLogP"])
+print(result.descriptors["TopoPSA"])  # usual topological PSA
 
-# Raw data fallback (descriptors are nested under 'descriptors' key):
-print(result.data['descriptors'])
-# {'MW': 46.042, 'SLogP': -0.001, 'TPSA': 57.96, 'nHBDon': 1.0, 'nHBAcc': 1.0, ...}
+# Raw data fallback:
+print(result.data["descriptors"])
 ```
 
-**Note:** `DescriptorsResult` does **not** have a `molecular_weight` property. Descriptor keys use short names (`MW`, `SLogP`, `nHBDon`) not verbose names.
+**Note:** `DescriptorsResult` does **not** have a `molecular_weight` property.
+`MW` is exact/monoisotopic mass, not average molecular weight. `TPSA` is a 3D
+charged-surface descriptor; use `TopoPSA` for the usual topological polar
+surface area used in drug-likeness rules.
 
 ### Cache invalidation
 
@@ -178,7 +193,7 @@ Some result properties are lazily loaded (e.g., conformer geometries, protein st
 
 ```python
 result.clear_cache()
-new_structures = result.conformer_molecules  # Refetched
+new_structures = result.get_conformers()  # Refetched for ConformerSearchResult
 ```
 
 ## Projects, folders, and organization
@@ -195,11 +210,13 @@ project = rowan.create_project(name="CDK2 lead optimization")
 rowan.set_project("CDK2 lead optimization")
 
 # All subsequent workflows go into this project
-wf = rowan.submit_descriptors_workflow("CCO", name="test compound")
+wf = rowan.submit_descriptors_workflow(
+    rowan.Molecule.from_smiles("CCO"), name="test compound"
+)
 
-# Retrieve later
-project = rowan.retrieve_project("CDK2 lead optimization")
-workflows = rowan.list_workflows(project=project, size=50)
+# retrieve_project takes a UUID; list_workflows scopes with parent_uuid.
+project = rowan.retrieve_project(project.uuid)
+workflows = rowan.list_workflows(parent_uuid=project.uuid, size=50)
 ```
 
 ### Folders
@@ -215,7 +232,7 @@ wf = rowan.submit_docking_workflow(
 )
 
 # List workflows in a folder
-results = rowan.list_workflows(folder=folder)
+results = rowan.list_workflows(parent_uuid=folder.uuid)
 ```
 
 ## Workflow decision trees
@@ -264,7 +281,7 @@ ADME assessment across GI pH: Use macropKa
 ```python
 # Step 1: Find best tautomer
 taut_wf = rowan.submit_tautomer_search_workflow(
-    initial_molecule="O=c1[nH]ccnc1",
+    initial_molecule=rowan.Molecule.from_smiles("O=c1[nH]ccnc1"),
     name="imidazole tautomers",
 )
 best_taut = taut_wf.result().best_tautomer
@@ -432,18 +449,17 @@ import rowan
 secret = rowan.get_webhook_secret()
 if secret is None:
     secret = rowan.create_webhook_secret()
-print(f"Secret key: {secret.secret}")
+# These functions return the secret as a plain string.
 
 # Rotate your secret (invalidates old, creates new)
-# Use this periodically for security
-new_secret = rowan.rotate_webhook_secret()
-print(f"New secret created (old secret disabled): {new_secret.secret}")
+# Use this periodically for security.
+secret = rowan.rotate_webhook_secret()
 
-# Verify incoming webhook signatures
+# Verify incoming webhook signatures.
 is_valid = rowan.verify_webhook_secret(
-    request_body=b"...",           # Raw request body (bytes)
-    signature="X-Rowan-Signature", # From request header
-    secret=secret.secret
+    raw_body=b"...",                  # Raw request body (bytes)
+    signature_header="sha256=...",    # Value from X-Rowan-Signature
+    secret=secret,
 )
 ```
 
@@ -458,7 +474,7 @@ smileses = ["CCO", "CC(=O)O", "c1ccccc1O"]
 names = ["ethanol", "acetic acid", "phenol"]
 
 workflows = [
-    rowan.submit_descriptors_workflow(smi, name=name)
+    rowan.submit_descriptors_workflow(rowan.Molecule.from_smiles(smi), name=name)
     for smi, name in zip(smileses, names)
 ]
 
@@ -507,7 +523,9 @@ rowan.api_key = "..."
 smileses = ["CCO", "CC(=O)O", "c1ccccc1O"]
 
 workflows = [
-    rowan.submit_descriptors_workflow(smi, name=f"compound_{i}")
+    rowan.submit_descriptors_workflow(
+        rowan.Molecule.from_smiles(smi), name=f"compound_{i}"
+    )
     for i, smi in enumerate(smileses)
 ]
 
@@ -536,7 +554,7 @@ for uuid in uuids:
         result = wf.result(wait=False)
         results.append({"uuid": uuid, "data": result.data})
     else:
-        print(f"{uuid}: still running ({wf.status})")
+        print(f"{uuid}: still running ({wf.get_status()})")
 
 print(f"Collected {len(results)} completed results")
 ```
@@ -553,7 +571,7 @@ Every workflow submission function accepts a `webhook_url` parameter:
 wf = rowan.submit_docking_workflow(
     protein=protein,
     pocket=pocket,
-    initial_molecule="CCO",
+    initial_molecule=rowan.Molecule.from_smiles("CCO"),
     webhook_url="https://myserver.com/rowan_callback",
     name="docking with webhook",
 )
@@ -573,8 +591,8 @@ Rowan supports webhook signature verification to ensure requests are authentic. 
 import rowan
 
 # Create a new webhook secret
-secret = rowan.create_webhook_secret()
-print(f"Your webhook secret: {secret.secret}")
+secret = rowan.create_webhook_secret()  # returns a string
+# Store it securely; do not log it.
 
 # Or retrieve an existing secret
 secret = rowan.get_webhook_secret()
@@ -629,8 +647,7 @@ import rowan
 import json
 
 app = FastAPI()
-_ws = rowan.get_webhook_secret() or rowan.create_webhook_secret()
-webhook_secret = _ws.secret
+webhook_secret = rowan.get_webhook_secret() or rowan.create_webhook_secret()
 
 @app.post("/rowan_callback")
 async def handle_rowan_webhook(request: Request):
@@ -705,7 +722,7 @@ analogues = [
 print("Searching tautomeric forms...")
 taut_workflows = [
     rowan.submit_tautomer_search_workflow(
-        smi, name=f"analog_{i}", folder=folder,
+        rowan.Molecule.from_smiles(smi), name=f"analog_{i}", folder=folder,
     )
     for i, smi in enumerate(analogues)
 ]
@@ -719,13 +736,15 @@ for wf in taut_workflows:
 print("Predicting pKa and properties...")
 pka_workflows = [
     rowan.submit_pka_workflow(
-        smi, method="chemprop_nevolianis2025", name=f"pka_{i}", folder=folder,
+        smi, method="chemprop_nevolianis2025", name=f"compound_{i}", folder=folder,
     )
     for i, smi in enumerate(best_tautomers)
 ]
 
 descriptor_workflows = [
-    rowan.submit_descriptors_workflow(smi, name=f"desc_{i}", folder=folder)
+    rowan.submit_descriptors_workflow(
+        rowan.Molecule.from_smiles(smi), name=f"compound_{i}", folder=folder
+    )
     for i, smi in enumerate(best_tautomers)
 ]
 
@@ -749,7 +768,8 @@ for wf in descriptor_workflows:
         desc = result.descriptors
         descriptor_results.append({
             "compound": wf.name,
-            "mw": desc.get("MW"),
+            "exact_mass": desc.get("MW"),
+            "topological_psa": desc.get("TopoPSA"),
             "logp": desc.get("SLogP"),
             "hba": desc.get("nHBAcc"),
             "hbd": desc.get("nHBDon"),
@@ -767,22 +787,22 @@ print("\n=== Preliminary SAR ===")
 print(df.to_string())
 
 # 7. Select promising compound for docking
-# compound names are "pka_0", "pka_1", etc. — extract index to look up SMILES
+# compound names are "compound_0", "compound_1", etc. — extract the index
 top_idx = int(df.loc[df["pka"].idxmin(), "compound"].split("_")[1])
 top_smiles = best_tautomers[top_idx]
 
 print(f"\nProceeding with docking: {top_smiles}")
 
 # 8. Docking campaign
-protein = rowan.create_protein_from_pdb_id(name="CDK2_1CKP", code="1CKP")
-pocket = {"center": [10.5, 24.2, 31.8], "size": [18.0, 18.0, 18.0]}
+protein = rowan.create_protein_from_pdb_id(code="1CKP", name="CDK2_1CKP")
+pocket = [[10.5, 24.2, 31.8], [18.0, 18.0, 18.0]]
 
 docking_wf = rowan.submit_docking_workflow(
     protein=protein,
     pocket=pocket,
-    initial_molecule=top_smiles,
+    initial_molecule=rowan.Molecule.from_smiles(top_smiles),
     do_pose_refinement=True,
-    name=f"docking_{top_compound}",
+    name=f"docking_{top_idx}",
 )
 
 dock_result = docking_wf.result()
@@ -795,59 +815,110 @@ dock_result.best_pose.write("best_pose.pdb")
 
 # Error Handling and Troubleshooting
 
-Common errors — invalid SMILES, missing API key, insufficient credits, failed workflows,
-and polling a workflow that is not yet done — with fixes, plus debugging tips.
+Common errors — invalid SMILES, missing API keys, HTTP/API failures, failed
+workflows, and polling — with verified handling for `rowan-python` 3.1.13.
 
-## Error handling and troubleshooting
+## Actual exception classes
 
-### Common errors and solutions
+`rowan.ValidationError`, `rowan.AuthenticationError`, and
+`rowan.InsufficientCreditsError` do **not** exist in SDK 3.1.13. Referencing one
+in an `except` clause raises `AttributeError` while handling the original
+failure.
+
+| Failure | Exception |
+|---|---|
+| Bad SMILES or wrong input type for a workflow | `ValueError` |
+| Authentication, credit, or other HTTP/API failure | `httpx.HTTPStatusError` |
+| Submitted workflow fails server-side | `rowan.WorkflowError` |
+
+## Validate molecules before submission
+
+```python
+from rdkit import Chem
+
+smiles = "CCCC(CC"
+mol = Chem.MolFromSmiles(smiles)
+if mol is None:
+    raise ValueError(f"Invalid SMILES: {smiles}")
+```
+
+Input types vary by workflow. For example, descriptors require a molecule
+object, while pKa accepts a SMILES string:
 
 ```python
 import rowan
 
-# Error 1: Invalid SMILES
 try:
-    wf = rowan.submit_descriptors_workflow("CCCC(CC", name="bad smiles")  # Invalid
-except rowan.ValidationError as e:
-    print(f"Invalid SMILES: {e}")
-    # Solution: Use RDKit to validate before submission
-    from rdkit import Chem
-    smi = Chem.MolToSmiles(Chem.MolFromSmiles(smi))
+    rowan.submit_descriptors_workflow("CCO")
+except ValueError as exc:
+    print(f"Input problem: {exc}")
 
-# Error 2: API key not set
-try:
-    wf = rowan.submit_descriptors_workflow("CCO")
-except rowan.AuthenticationError:
-    print("API key not found. Set ROWAN_API_KEY env var or call rowan.api_key = '...'")
-
-# Error 3: Insufficient credits
-try:
-    wf = rowan.submit_protein_cofolding_workflow(...)
-except rowan.InsufficientCreditsError as e:
-    print(f"Not enough credits: {e}. Purchase more or reduce job size.")
-
-# Error 4: Workflow failed (bad molecule, etc.)
-try:
-    wf = rowan.submit_docking_workflow(...)
-    result = wf.result()
-except rowan.WorkflowError as e:
-    print(f"Workflow failed: {e}")
-    # Check wf.status for details
-    print(f"Status: {wf.status}")
-
-# Error 5: Workflow not yet done — poll manually
-result = wf.result(wait=True, poll_interval=5)  # waits and polls every 5s
-# Or check status without blocking:
-if not wf.done():
-    print("Workflow still running. Call wf.result() again later.")
+wf = rowan.submit_descriptors_workflow(rowan.Molecule.from_smiles("CCO"))
 ```
 
-### Debugging tips
+## Authentication and API errors
 
-- **Check workflow status**: `wf.status`, check `wf.done()`, or call `wf.get_status()`
-- **Inspect raw result**: `result.data` instead of convenience properties
-- **Re-run failed workflow**: Save UUIDs and retry with `rowan.retrieve_workflow(uuid)`
-- **Validate molecules beforehand**: Use RDKit or Chemaxon before batch submission
+```python
+import httpx
+import rowan
+
+try:
+    user = rowan.whoami()
+except httpx.HTTPStatusError as exc:
+    if exc.response.status_code == 401:
+        print("Bad or missing API key — check ROWAN_API_KEY")
+    else:
+        # Includes credit limits and other API failures; inspect the response.
+        print(exc.response.status_code, exc.response.text)
+        raise
+```
+
+The SDK treats an environment variable set to an **empty string** as present.
+That produces `401 Could not validate credentials` rather than a clear missing
+key error. Check that `ROWAN_API_KEY` is non-empty without printing the key:
+
+```python
+import os
+
+api_key = os.environ.get("ROWAN_API_KEY")
+if not api_key:
+    raise RuntimeError("ROWAN_API_KEY is missing or empty")
+```
+
+Use `max_credits=N` on submission calls to bound spend.
+
+## Server-side workflow failures
+
+```python
+try:
+    result = wf.result()
+except rowan.WorkflowError as exc:
+    print(f"Workflow failed: {exc}")
+    print(f"Status: {wf.get_status()}")
+```
+
+## Polling and non-blocking checks
+
+```python
+# Block and poll every five seconds.
+result = wf.result(wait=True, poll_interval=5)
+
+# Or check without blocking.
+if not wf.done():
+    print(f"Still running: {wf.get_status()}")
+else:
+    result = wf.result(wait=False)
+```
+
+`WorkflowResult.complete` is a boolean, not a percent-done value. For coarse
+status, use `wf.get_status()` and `wf.fetch_latest()`.
+
+## Debugging tips
+
+- Inspect `result.data` when a convenience property is unavailable.
+- Save workflow UUIDs and reconnect with `rowan.retrieve_workflow(uuid)`.
+- Use `dir(result)` to discover properties for that result class; they differ.
+- Validate SMILES locally with RDKit before any paid submission.
 
 ### `references/workflow_catalog.md`
 
@@ -864,25 +935,25 @@ A lightweight entry point for batch triage, SAR, or exploratory scripts.
 
 ```python
 wf = rowan.submit_descriptors_workflow(
-    "CC(=O)Oc1ccccc1C(=O)O",  # positional arg, accepts SMILES string
+    rowan.Molecule.from_smiles("CC(=O)Oc1ccccc1C(=O)O"),
     name="aspirin descriptors",
 )
 
 result = wf.result()
-print(result.descriptors['MW'])    # 180.16
-print(result.descriptors['SLogP']) # 1.19
-print(result.descriptors['TPSA'])  # 59.44
-print(result.data['descriptors'])
-# {'MW': 180.16, 'SLogP': 1.19, 'TPSA': 59.44, 'nHBDon': 1.0, 'nHBAcc': 4.0, ...}
+print(result.descriptors["MW"])       # 180.042 — exact mass
+print(result.descriptors["SLogP"])    # 1.31
+print(result.descriptors["TopoPSA"])  # 63.6 — topological PSA
+print(result.descriptors["nHBAcc"])   # 3.0
 ```
 
 **Common descriptor keys:**
 
 | Key | Description | Typical drug range |
 |-----|-------------|-------------------|
-| `MW` | Molecular weight (Da) | <500 (Lipinski) |
+| `MW` | Exact/monoisotopic mass (Da), not average MW | <500 (Lipinski) |
 | `SLogP` | Calculated LogP (lipophilicity) | -2 to +5 |
-| `TPSA` | Topological polar surface area (Å²) | <140 for oral bioavailability |
+| `TopoPSA` | Topological polar surface area (Å²) | <140 for oral bioavailability |
+| `TPSA` | 3D charged surface area, not topological PSA | — |
 | `nHBDon` | H-bond donor count | ≤5 (Lipinski) |
 | `nHBAcc` | H-bond acceptor count | ≤10 (Lipinski) |
 | `nRot` | Rotatable bond count | <10 for oral drugs |
@@ -891,19 +962,22 @@ print(result.data['descriptors'])
 | `FilterItLogS` | Estimated aqueous solubility (LogS) | >-4 preferred |
 | `Lipinski` | Lipinski Ro5 pass (1.0) or fail (0.0) | — |
 
-The result contains hundreds of additional molecular descriptors (BCUT, GETAWAY, WHIM, etc.); access any via `result.descriptors['key']`.
+The result contains about 1,679 molecular descriptors in SDK 3.1.13 (BCUT,
+GETAWAY, WHIM, etc.); access any via `result.descriptors["key"]`. For average
+molecular weight, calculate it separately (for example, RDKit `MolWt`).
 
 ### 2. Microscopic pKa
 
 For protonation-state energetics and acid/base behavior of a specific structure.
 
-Two methods are available:
+Four methods are available:
 
 | Method | Input | Speed | Covers | Use when |
 |--------|-------|-------|--------|----------|
-| `chemprop_nevolianis2025` | SMILES string | Fast | Deprotonation only (anionic conjugate bases) | Acidic groups only; quick screening |
-| `starling` | SMILES string | Fast | Acid + base (full protonation/deprotonation) | Most drug-like molecules; preferred SMILES method |
-| `aimnet2_wagen2024` (default) | 3D molecule object | Slower, higher accuracy | Acid + base | You already have a 3D structure (e.g. from conformer search) |
+| `chemprop_nevolianis2025` | SMILES string | Fast | Deprotonation only | Acidic groups only; quick screening |
+| `starling` | SMILES string | Fast | Acid + base | Most drug-like molecules; preferred SMILES method |
+| `aimnet2_wagen2024` | 3D molecule object | Slower | Acid + base | You already have a 3D structure |
+| `gxtb_wagen2026` (**default**) | 3D molecule object | Slower | Acid + base | Current SDK default; set `method=` explicitly for reproducibility |
 
 ```python
 # Fast path: SMILES input with full acid+base coverage (use starling method when available)
@@ -914,8 +988,10 @@ wf = rowan.submit_pka_workflow(
 )
 
 result = wf.result()
-print(result.strongest_acid)    # 9.81 (pKa of the most acidic site)
-print(result.conjugate_bases)   # list of {pka, smiles, atom_index, ...} per deprotonatable site
+print(result.strongest_acid)    # 9.995 for phenol (verified; literature ~9.95)
+print(result.strongest_base)    # None when no basic site is found
+print(result.conjugate_bases)   # list of pKaMicrostate objects
+# Access each microstate with .pka, .smiles, .atom_index, .delta_g, .uncertainty
 ```
 
 ### 3. MacropKa
@@ -949,14 +1025,17 @@ For 3D ensemble generation when ensemble quality matters.
 ```python
 wf = rowan.submit_conformer_search_workflow(
     initial_molecule="CCOC(=O)N1CCC(CC1)Oc1ncnc2ccccc12",
-    num_conformers=50,  # Optional: override default
     name="conformer search",
 )
 
 result = wf.result()
-print(result.conformer_energies)  # [0.0, 1.2, 2.5, ...]
-print(result.conformer_molecules)  # List of 3D molecules
-print(result.best_conformer)  # Lowest-energy conformer
+print(result.num_conformers)
+print(result.get_energies())    # [0.0, 1.2, 2.5, ...]
+print(result.get_conformers())  # list of 3D molecules
+print(result.get_conformer(0))  # lowest-energy conformer
+
+# There is no num_conformers submit parameter. Configure the generator and
+# ensemble through conf_gen_settings.
 ```
 
 ### 5. Tautomer search
@@ -965,7 +1044,7 @@ For heterocycles and systems where tautomer state affects downstream modeling.
 
 ```python
 wf = rowan.submit_tautomer_search_workflow(
-    initial_molecule="O=c1[nH]ccnc1",  # or keto tautomer
+    initial_molecule=rowan.Molecule.from_smiles("O=c1[nH]ccnc1"),
     name="imidazolone tautomers",
 )
 
@@ -986,19 +1065,18 @@ protein = rowan.upload_protein(
     file_path="cdk2.pdb",
 )
 
-# Define binding pocket
-pocket = {
-    "center": [10.5, 24.2, 31.8],
-    "size": [18.0, 18.0, 18.0],
-}
+# Binding pocket: [[center_x, center_y, center_z], [size_x, size_y, size_z]] in Å
+pocket = [[10.5, 24.2, 31.8], [18.0, 18.0, 18.0]]
 
 # Submit docking
 wf = rowan.submit_docking_workflow(
     protein=protein,
     pocket=pocket,
-    initial_molecule="CCNc1ncc(c(Nc2ccc(F)cc2)n1)-c1cccnc1",
+    initial_molecule=rowan.Molecule.from_smiles(
+        "CCNc1ncc(c(Nc2ccc(F)cc2)n1)-c1cccnc1"
+    ),
     do_pose_refinement=True,
-    do_conformer_search=True,
+    do_csearch=True,
     name="lead docking",
 )
 
@@ -1029,11 +1107,11 @@ analogues = [
 
 wf = rowan.submit_analogue_docking_workflow(
     analogues=analogues,
-    initial_molecule=analogues[0],  # Reference ligand
+    initial_molecule=rowan.Molecule.from_smiles(analogues[0]),  # reference ligand
     protein=protein,
-    pocket=pocket,
     name="SAR series docking",
 )
+# Analogue docking does not accept a pocket parameter in SDK 3.1.13.
 
 result = wf.result()
 print(result.analogue_scores)  # List of scores for each analogue
@@ -1120,7 +1198,7 @@ All workflows follow the same submit → wait → retrieve pattern and support w
 | Spin States | `submit_spin_states_workflow` | Spin-state energy ordering for organometallics/radicals |
 | Strain | `submit_strain_workflow` | Conformational strain relative to global minimum |
 | Scan | `submit_scan_workflow` | PES scans; torsion profiles |
-| Multistage Optimization | `submit_multistage_opt_workflow` | Progressive optimization across levels of theory |
+| Multistage Optimization | `submit_multistage_optimization_workflow` | Progressive optimization across levels of theory |
 
 ### Reaction chemistry
 
@@ -1144,7 +1222,7 @@ All workflows follow the same submit → wait → retrieve pattern and support w
 | Workflow | Function | When to use |
 |----------|----------|-------------|
 | RBFE/FEP | `submit_relative_binding_free_energy_perturbation_workflow` | Relative ΔΔG for congeneric series |
-| RBFE Graph | `submit_rbfe_graph_workflow` | Build and optimize an RBFE perturbation network |
+| RBFE Graph | `submit_relative_binding_free_energy_graph_workflow` | Build and optimize an RBFE perturbation network |
 
 ### Sequence and structural biology
 
