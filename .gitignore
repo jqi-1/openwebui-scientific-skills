@@ -1,8 +1,53 @@
 # upstream clone used as the conversion source (regenerate with convert_to_openwebui.py)
-_src/
+/_src/
 
 # codegraph local index
-.codegraph/
+/.codegraph/
 
 __pycache__/
 *.pyc
+*.pyo
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+.tox/
+.ipynb_checkpoints/
+
+# local secrets / credentials (installer deals with JWTs + API keys)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p8
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.jwt
+*access_token*
+*refresh_token*
+*id_token*
+*auth_token*
+*service-account*.json
+*service-account*.yaml
+*service-account*.yml
+*service-account*.toml
+*service-account*.key
+*credential*.json
+*credential*.yaml
+*credential*.yml
+*credential*.toml
+*credential*.ini
+*credential*.cfg
+*credential*.env
+secrets/
+.credentials/
+.keys/

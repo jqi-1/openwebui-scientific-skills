@@ -49,7 +49,9 @@ DATA_MAX_BYTES = 200_000
 FENCE_LANG = {".py": "python", ".sh": "bash", ".json": "json", ".csv": "csv",
               ".tex": "latex", ".bib": "bibtex", ".bst": "latex", ".sty": "latex",
               ".html": "html", ".xml": "xml", ".yaml": "yaml", ".yml": "yaml",
-              ".mplstyle": "text", ".txt": "text", ".gitignore": "text"}
+              ".mplstyle": "text", ".txt": "text"}
+# Note: dotfiles like `.gitignore` have no suffix (splitext treats the leading
+# dot as part of the basename), so they intentionally fall back to "text".
 
 
 def parse_frontmatter(text):
@@ -59,16 +61,45 @@ def parse_frontmatter(text):
         return {}, text
     fm, body = m.group(1), text[m.end():]
     keys = {}
-    for line in fm.split("\n"):
+    lines = fm.split("\n")
+    last_key = None
+    i = 0
+    while i < len(lines):
+        line = lines[i]
         if ":" in line:
             k, _, v = line.partition(":")
-            keys[k.strip()] = v.strip().strip("\"'")
+            val = v.strip().strip("\"'")
+            last_key = k.strip()
+            i += 1
+            cont = []
+            # Fold all following lines into the running value: indented
+            # folded/literal bodies (which may contain ":" — URLs,
+            # timestamps) and unindented colon-less lines (quoted scalars
+            # spanning physical lines). Only a new column-0 `key:` line ends
+            # the value.
+            while i < len(lines):
+                nxt = lines[i]
+                if ":" in nxt and not nxt.startswith((" ", "\t")):
+                    break
+                cont.append(nxt.strip())
+                i += 1
+            merged = " ".join(cont)
+            if cont:
+                # Bare `|`/`>` indicators are not part of the value.
+                val = merged if val in ("|", ">") else val + " " + merged
+            keys[last_key] = val.strip().strip("\"'")
+        else:
+            # Colon-less line before any key: not a recognised frontmatter
+            # form; ignore rather than guess.
+            i += 1
     return keys, body
 
 
 def collect_files(root, prefix="", skip_dirs=()):
-    """Return (included[(relpath, size)], excluded[relpath]) deterministically.
-    relpath is expressed relative to `root`, prefixed with `prefix`.
+    """Return (included[(relpath, size, text)], excluded[relpath])
+    deterministically. relpath is expressed relative to `root`, prefixed with
+    `prefix`. Files are validated and decoded once; build() reuses the text
+    instead of re-reading every file.
     ```
     """
     included, excluded = [], []
@@ -86,11 +117,11 @@ def collect_files(root, prefix="", skip_dirs=()):
                 continue
             try:
                 with io.open(p, encoding="utf-8") as fh:
-                    fh.read()
+                    text = fh.read()
             except (UnicodeDecodeError, OSError):
                 excluded.append(rel)
             else:
-                included.append((rel, size))
+                included.append((rel, size, text))
     included.sort()
     excluded.sort()
     return included, excluded
@@ -103,8 +134,22 @@ def build(skill_dir, out_dir, manifest):
     # id: Open WebUI backend enforces lowercase [a-z0-9_-]+ ids.
     skill_id = (fm.get("name") or name).strip().lower().replace(" ", "-")
     if not re.fullmatch(r"[a-z0-9_-]+", skill_id):
-        skill_id = re.sub(r"[^a-z0-9_-]", "", skill_id) or name
-    description = (fm.get("description") or "").strip()
+        # Re-sanitize; fall back to a normalized folder name, then a short
+        # hash, so the [a-z0-9_-]+ contract always holds.
+        clean = re.sub(r"[^a-z0-9_-]", "", skill_id)
+        if not clean:
+            clean = re.sub(r"[^a-z0-9_-]", "",
+                           name.strip().lower().replace(" ", "-"))
+        skill_id = clean or hashlib.sha256(name.encode()).hexdigest()[:12]
+    # Two folders (e.g. one via its folder name, another via frontmatter
+    # `name:`) can normalize to the same id; the later one would silently
+    # overwrite the earlier skill. Refuse loudly instead of losing a skill.
+    for prev_folder, m in manifest.items():
+        if m["id"] == skill_id:
+            raise ValueError(
+                "id collision: '%s' and '%s' both normalize to '%s'; rename "
+                "one so they stay distinct" % (prev_folder, name, skill_id))
+    description = (" ".join((fm.get("description") or "").split())).strip()
 
     # Order: references, scripts, assets (documentation first).
     included_all, excluded_all = [], []
@@ -118,18 +163,20 @@ def build(skill_dir, out_dir, manifest):
         excluded_all.extend(exc)
 
     blocks = []
-    for rel, _size in included_all:
+    for rel, _size, text in included_all:
         if rel == "SKILL.md":
             continue
-        with io.open(os.path.join(skill_dir, rel), encoding="utf-8") as f:
-            text = f.read()
         rstrip = text.rstrip()
         if rel.endswith(".md"):
             blocks.append(("### `{rel}`\n\n{text}").format(rel=rel, text=rstrip))
         else:
             lang = FENCE_LANG.get(os.path.splitext(rel)[1].lower(), "text")
-            blocks.append(("### `{rel}`\n\n```{lang}\n{text}\n```").format(
-                rel=rel, lang=lang, text=rstrip))
+            # Pick a fence longer than any backtick run inside the content so
+            # it cannot terminate the fence early and corrupt the markdown.
+            max_run = max((len(run) for run in re.findall(r"`+", text)), default=0)
+            fence = "`" * max(3, max_run + 1)
+            blocks.append(("### `{rel}`\n\n{fence}{lang}\n{text}\n{fence}").format(
+                rel=rel, lang=lang, text=rstrip, fence=fence))
 
     appendix = [
         "---",
@@ -152,23 +199,24 @@ def build(skill_dir, out_dir, manifest):
         id=skill_id, desc=description, body=body.rstrip())
     content += "\n\n" + "\n\n".join(appendix).rstrip() + "\n"
 
+    out = os.path.join(out_dir, "skills", "{}.md".format(skill_id))
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    with io.open(out, "w", encoding="utf-8") as f:
+        f.write(content)
+    # Record in the manifest only after the write succeeded, so a failed
+    # skill is never counted in manifest.json / content_bytes.
     manifest[name] = {
         "id": skill_id,
         "description": description,
         "sizes": {
             "SKILL.md": len(raw),
-            "inlined": sum(s for _, s in included_all),
+            "inlined": sum(s for r, s, _ in included_all if r != "SKILL.md"),
             "content": len(content),
         },
-        "files_inlined": [r for r, _ in included_all if r != "SKILL.md"],
+        "files_inlined": [r for r, _, _ in included_all if r != "SKILL.md"],
         "files_excluded": excluded_all,
         "sha256": "sha256:" + hashlib.sha256(content.encode()).hexdigest(),
     }
-
-    out = os.path.join(out_dir, "skills", "{}.md".format(skill_id))
-    os.makedirs(os.path.dirname(out), exist_ok=True)
-    with io.open(out, "w", encoding="utf-8") as f:
-        f.write(content)
     return content
 
 
@@ -176,11 +224,27 @@ def main():
     src = sys.argv[1] if len(sys.argv) > 1 else "_src"
     out = sys.argv[2] if len(sys.argv) > 2 else "openwebui"
     base = os.path.join(src, "skills")
+    if not os.path.isdir(base):
+        print("error: source skills dir not found: %s" % base, file=sys.stderr)
+        sys.exit(2)
+    # Create the output tree eagerly so skills.json/manifest.json writes below
+    # still succeed when no skill builds (empty or all-failing source dir).
+    os.makedirs(os.path.join(out, "skills"), exist_ok=True)
     manifest, json_items = {}, []
+    skipped = 0
     for folder in sorted(os.listdir(base)):
         if not os.path.isfile(os.path.join(base, folder, "SKILL.md")):
             continue
-        content = build(os.path.join(base, folder), out, manifest)
+        try:
+            content = build(os.path.join(base, folder), out, manifest)
+        except (ValueError, OSError, UnicodeDecodeError) as exc:
+            # One bad skill must not abort the whole conversion: report it
+            # and continue, but surface the shortfall via the exit code so
+            # CI cannot mistake partial output for a clean build.
+            skipped += 1
+            print("error: skipping skill '%s': %s" % (folder, exc),
+                  file=sys.stderr)
+            continue
         m = manifest[folder]
         json_items.append({
             "id": m["id"],
@@ -203,6 +267,10 @@ def main():
             "content_bytes": total,
             "skills": manifest,
         }, f, ensure_ascii=False, indent=2)
+    if skipped:
+        print("conversion finished with %d skill(s) skipped" % skipped,
+              file=sys.stderr)
+        sys.exit(1)
 
 
 if __name__ == "__main__":
